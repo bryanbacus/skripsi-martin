@@ -1,4 +1,4 @@
-<?
+<?php
 //definisi variabel
 if($_GET['tipeP']){
 	$tipeProfile = preg_replace("@[^0-9]@i","",$_GET['tipeP']);
