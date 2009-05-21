@@ -1,0 +1,3 @@
+<BLOCKQUOTE dir=ltr style=\"MARGIN-RIGHT: 0px\">
+<P>If you have any question or need information to us, don’t hesitate to contact us at :</P>
+<P>IJGC Official Wisma Pondok Indah Lt 4, R.402<BR>Jl. Sultan Iskandar Muda Kav V-TA Pondok Indah, Jakarta Selatan<BR>Indonesia<BR>Phone No : +62 21 765 6060<BR>Fax No : +62 21 750 7899<BR>Email : <A href=\"mailto:csr@ijgc-online.com\">csr@ijgc-online.com</A><BR><BR>Contact Person: Mrs. Nanik</P></BLOCKQUOTE>

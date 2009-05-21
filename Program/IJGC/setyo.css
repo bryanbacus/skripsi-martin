@@ -1,0 +1,489 @@
+/* CSS Document */
+body{
+	margin:0px 0px 0px 0px;
+	font: 12px Tahoma;
+}
+#main{
+	width:690px;
+	border-left:1px solid #999999;
+	border-top:1px solid #999999;
+	border-right:1px solid #999999;
+	background:#E9E9E9;
+	margin-top:25px;
+	padding:0px;
+}
+#header{
+	display:block;
+	width:690px;
+	height:164px;
+}
+#lome{
+	padding:5px 0px 0px 6px;
+	float:left;
+	width:282px;
+	height:159px;
+	margin:0px;
+}
+#logo{
+	margin:0px 5px 5px 0px;
+	width:277px;;
+	height:108px;
+	border:1px solid #CCCCCC;
+	background:#FFFFFF;
+	text-align:center;
+}
+#menu{
+	margin:5px 0px 0px 0px;
+	width:283px;
+	height:43px;
+	background:#FFFFFF;
+	border-left:1px solid #999999;
+	border-top:1px solid #999999;
+	text-align:center;
+}
+#rightBox{
+	float:left;
+	height:159px;
+	width:393px;	
+	margin:5px 3px 0px 0px;
+	border-right:1px solid #999999;
+	background:#FFFFFF;
+}
+#themes{
+	border-left:1px solid #999999;
+	border-top:1px solid #999999;
+	border-bottom:1px solid #999999;
+	height:150px;
+	width:390px;	
+	margin:0px;
+	padding:2px 1px 2px 1px;
+	background:#FFFFFF;
+	vertical-align:middle;
+}
+#gambar{
+	background:url(./images/themes.jpg) no-repeat;
+	width:386px;
+	height:149px;
+}
+#sMenu{
+	margin-top:10px;
+}
+.pembatas{
+	padding:0px 5px;
+}
+#mainMenu{
+	display:block;
+	background:#FFFFFF;
+	margin:0px;
+	padding:0px;
+	width:691px;
+}
+#mMenuKiri{
+	width:6px;
+	height:28px;
+	background:url(./images/bg_menu.gif) repeat-x;
+	border-left:1px solid #999999;
+	border-right:1px solid #999999;
+}
+#mMenu{
+	width:676px;
+	padding:0px;
+	background:#FFFFFF;
+}
+#mMenuKanan{
+	width:6px;
+	height:28px;
+	background:url(./images/bg_menu.gif) repeat-x;
+	border-left:1px solid #999999;
+	border-right:1px solid #999999;
+}
+#content{
+	display:block;
+	background-color:#E9E9E9;
+	margin:0px;
+	padding-bottom: 10px;
+	border-left:1px solid #999999;
+	border-right:1px solid #999999;
+}
+#contentKotak{
+	background-color:#FFFFFF;
+	border-bottom:1px solid #999999;
+	border-left:1px solid #999999;
+	border-right:1px solid #999999;
+	margin:0px 6px 0px 6px;
+	padding:0px 3px;
+}
+#cleft{
+	width:140px;
+	margin:3px 0px 0px 0px;
+  }
+#clock{
+	height:109px;
+	width:140px;
+	margin:0px;
+	text-align:left;
+	color:#CCCCCC;
+}
+#clockhead {
+	padding-left: 0px;
+	margin: 0px;
+	height: 20px;
+	width: 163px;
+	background:url(./images/clock.gif) no-repeat;	
+}
+#waktu{
+	margin-top:5px;
+	height: 43px;
+	font: Tahoma;
+	font-size: 11px;
+	color:#333333;
+	text-align:center;
+	background:url(./images/time_bg.jpg) no-repeat;
+}
+#lhr {
+	border-top: 1px solid #cccccc;
+	margin: 5px 0px 0px 0px;
+}
+#banner{
+	border: 0px solid #cccccc;
+	margin: 5px 0px 0px 0px;
+	padding: 1px 0px 0px 0px;
+}
+#banner a{
+	font-family : tahoma;
+	color: #990000;
+	font-size: 11px;
+}
+
+#iklan{
+	border: 0px solid #cccccc;
+	margin: 5px 0px 0px 5px;
+	padding: 1px 0px 0px 0px;
+	font-family : tahoma;
+	font-size:12px;
+	color:#006666;
+	font-weight:bold;
+}
+#maincenter{
+	width:349px;
+	margin:3px 5px 0px 5px;
+	background:#FFFFFF;
+}
+#hotNews{
+	width:349px;
+	height:380px;
+	background:#FFFFFF;
+	border-left:1px solid #EAE9E8;
+	border-right:1px solid #EAE9E8;
+	border-bottom:1px solid #EAE9E8;
+}
+#newshead{
+	padding:0px;
+	margin:0px 0px 5px 0px;
+	width:349px;
+	height:20px;
+	text-indent:-100000px;
+	background:url(./images/title_hot.jpg) no-repeat;
+}
+#hotNews .contentnews{
+	font:Tahoma;
+	font-size: 11px;
+	color:#333333;
+	text-align:left;
+	margin-bottom: 10px;
+}
+#hotNews .contenttitle{
+	font:Tahoma;
+	font-size: 11px;
+	font-weight:bold;
+	color:#003366;
+	text-align:left;
+	margin-top:7px;
+}
+#hotNews .ctgl{
+	font:Tahoma;
+	font-size: 10px;
+	color:#777777;
+	text-align:left;
+}
+#blokbawah{
+	margin-top:5px;
+}
+#blokbawah p {
+	text-align:left;
+	padding-left:25px;
+	padding-top:0px;
+	margin-top: 30px;
+}
+#cright {
+	background-color:#FFFFFF;
+	padding-left: 0px;
+	border-left: 1px solid #EAE9E8;
+	width: 163px;
+	margin: 3px 0px 0px 0px;
+}
+#pollinghead{
+	padding-left: 0px;
+	margin: 0px;
+	height: 20px;
+	width: 163px;
+	background:url(./images/polling_menu.gif) no-repeat;
+}
+#polling{
+	display:block;
+	padding-left: 0px;
+	padding-top: 3px;
+	padding-bottom: 10px;
+	margin:0px;
+	width: 163px;
+	font:Tahoma;
+	font-size: 11px;
+	color:#666666;
+}
+#cright #polling #tblPoll{
+	padding-left:2px;
+}
+#cright #polling #result{
+	padding-left:2px;
+}
+#cright #polling #tblPoll .header{
+	padding-bottom:3px;
+	text-align:left;
+}
+#cright #polling #result .header{
+	padding-bottom:3px;
+	text-align:left;
+}
+#cright #polling .opsi{
+	text-align:left;
+}
+#cright #linkhead{
+	padding-left: 0px;
+	margin: 0px;
+	height: 18px;
+	width: 163px;
+	background:url(./images/links.gif) no-repeat;
+}
+#linkhead{
+	padding-left: 0px;
+	margin: 0px;
+	height: 18px;
+	width: 163px;
+	background:url(./images/links.gif) no-repeat;
+}
+#link{
+	padding-left: 0px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	width: 163px;
+	font:Tahoma;
+	font-size: 11px;
+	color:#666666;
+	text-align:left;
+}
+#link .tdbg{
+	height: 2px;
+	width: 140px;
+	background:url(./images/line.gif) repeat-x;
+}
+#cnthit{
+	padding-left: 0px;
+	padding-bottom: 10px;
+	margin:0px;
+	height: 41px;
+	width: 163px;
+	text-align:right;
+	font:Tahoma;
+	font-size: 12px;
+	color:#666666;
+	font-weight:bold;
+	background:url(./images/bg_hit.gif) repeat-x;
+}
+#footer{
+	margin: 11px;
+	font: Tahoma;
+	color:#FFFFFF;
+	font-size:11px;
+	margin-bottom:10px;
+}
+#footer a{
+	text-decoration:none;
+	margin: 11px;
+	font: Tahoma;
+	color:#FFFFFF;
+	font-size:11px;
+}
+#footer a:hover{
+	margin: 11px;
+	font: Tahoma;
+	color:#000066;
+	font-size:11px;
+}
+
+#contentKotak #cformat {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	width: 600px;
+	font: Tahoma;
+	font-size: 11px;
+	color:#333333;
+}
+#contentKotak #visiMisi {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+#cformat img {
+	height: 100px;
+	width:100px;
+	border: 1px solid #999999;
+}
+#cformat .jdl {
+	font:tahoma;
+	font-size:12px;
+	font-weight:bold;
+	color:#003366;
+}
+.headcformat {
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#333333;
+}
+#cformat a {
+	font:tahoma;
+	font-size: 11px;
+	color:#000033;
+	text-decoration:none;
+}
+#cformat a:hover {
+	font:tahoma;
+	font-size: 11px;
+	color:#990000;
+	text-decoration:underline;
+}
+#cformat .recent {
+	font:tahoma;
+	font-size: 14px;
+	color:#333333;
+	font-weight:bold;
+	text-decoration:none;
+}
+.mars {
+	border:1px solid #CCCCCC;
+	background-color:#F3F3F3;
+	padding:10px;
+}
+#contentKotak #pformat {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	width: 600px;
+	font: Tahoma;
+	font-size: 11px;
+	color:#333333;
+}
+#listProfile {
+	width: 175px;
+}
+#detailProfile {
+}
+.photo {
+	border:1px solid #CCCCCC;
+	margin: 2px;
+}
+.tdbg{
+	height: 2px;
+	width: 140px;
+	background:url(./images/line.gif) repeat-x;
+}
+.header {
+	font: Tahoma;
+	font-size: 11px;
+	font-weight:bold;
+	color:#003366;
+	text-align:left;
+}
+.grs-kotak {
+	border:1px solid #CCCCCC;
+	background-color:#F3F3F3;
+	padding: 5px;
+}
+#dropmenudiv{
+	position:absolute;
+	border:1px solid #990000;
+	border-bottom-width: 0;
+	font:normal 12px Verdana;
+	line-height:18px;
+	z-index:100;
+	padding:0px;
+	margin:0px;
+}
+#dropmenudiv a{
+	width: 100%;
+	display: block;
+	text-indent: 3px;
+	border-bottom: 1px solid #990000;
+	padding: 1px 0;
+	text-decoration: none;
+	color:#333333;
+	font:normal 12px Verdana;
+}
+	#dropmenudiv a:hover{ 
+	background-color: #993300;
+	color:#ffffff;
+}
+
+.opsi{
+	width:20%;
+}
+.item{
+	width:80%;
+	text-align:left;
+}
+#listLinks {
+}
+
+
+#listLinks a {
+	font: Tahoma;
+	color:#444444;
+	font-size: 11px;
+	text-decoration:none;
+}
+#listLinks a:hover {
+	font: Tahoma;
+	color:#669933;
+	font-size: 11px;
+	text-decoration:none;
+}
+
+#signGB{
+	width:300px;
+}
+#signGB td{
+	padding:2px;
+}
+#gbSign{
+	margin-top:10px;
+}
+.tanggal{
+	text-align:left;
+}
+
+#listAlbum {
+	width: 175px;
+}
+
+#kotakAlbum{
+	width:40%;
+	float:left;
+	margin-right:10px;
+	margin-left:10px;
+	margin-bottom:10px;
+	text-align:center;
+}

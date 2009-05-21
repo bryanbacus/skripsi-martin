@@ -1,0 +1,41 @@
+<H2 style=\"MARGIN: 12pt 0in 3pt\"><SPAN lang=IN><EM><FONT face=Arial>Guidelines from The Rules of Golf</FONT></EM></SPAN></H2>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN lang=IN>The Official Rules of Golf appear on the About.com Golf site courtesy of the USGA, are used with permission, and may not be reprinted without the permission of the USGA.</SPAN></P>
+<H3 style=\"MARGIN: auto 0in\">Introduction</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN lang=IN>This section provides guidelines on the manner in which the game of golf should be played. If they are followed, all players will gain maximum enjoyment from the game. The overriding principle is that consideration should be shown to others on the course at all times. </SPAN></P>
+<H3 style=\"MARGIN: auto 0in\">The Spirit of the Game</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN lang=IN>Unlike many sports, golf is played, for the most part, without the supervision of a referee or umpire. The game relies on the integrity of the individual to show consideration for other players and to abide by the Rules. All players should conduct themselves in a disciplined manner, demonstrating courtesy and sportsmanship at all times, irrespective of how competitive they maybe. This is the spirit of the game of golf. </SPAN></P>
+<H3 style=\"MARGIN: auto 0in\">Safety</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN lang=IN>Players should ensure that no one is standing close by or in a position to be hit by the club, the ball or any stones, pebbles, twigs or the like when they make a stroke or practice swing. </SPAN></P>
+<P>Players should not play until the players in front are out of range.</P>
+<P>Players should always alert greenstaff nearby or ahead when they are about to make a stroke that might endanger them. </P>
+<P>If a player plays a ball in a direction where there is a danger of hitting someone, he should immediately shout a warning. The traditional word of warning in such situation is \"fore\".</P>
+<H3 style=\"MARGIN: auto 0in\">Consideration for Other Players</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><B><SPAN lang=IN>No Disturbance or Distraction</SPAN></B><SPAN lang=IN><BR>Players should always show consideration for other players on the course and should not disturb their play by moving, talking or making unnecessary noise. </SPAN></P>
+<P>Players should ensure that any electronic device taken onto the course does not distract other players. </P>
+<P>On the teeing ground, a player should not tee his ball until it is his turn to play. </P>
+<P>Players should not stand close to or directly behind the ball, or directly behind the hole, when a player is about to play. </P>
+<P><B>On the Putting Green</B><BR>On the putting green, players should not stand on another player\`s line of putt or when he is making a stroke, cast a shadow over his line of putt. </P>
+<P>Players should remain on or close to the putting green until all other players in the group have holed out. </P>
+<P><B>Scoring</B><BR>In stroke play, a player who is acting as a marker should, if necessary, on the way to the next tee, check the score with the player concerned and record it.</P>
+<H3 style=\"MARGIN: auto 0in\">Pace of Play</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><B><SPAN lang=IN>Play at Good Pace and Keep Up</SPAN></B><SPAN lang=IN><BR>Players should play at a good pace. The Committee may establish pace of play guidelines that all players should follow. </SPAN></P>
+<P>It is a group\`s responsibility to keep up with the group in front. If it loses a clear hole and it is delaying the group behind, it should invite the group behind to play through, irrespective of the number of players in that group. Where a group has not lost a clear hole, but it is apparent that the group behind can play faster, it should invite the faster moving group to play through.</P>
+<P><B>Be Ready to Play</B><BR>Players should be ready to play as soon as it is their turn to play. When playing on or near the putting green, they should leave their bags or carts in such a position as will enable quick movement off the green and towards the next tee. When the play of a hole has been completed, players should immediately leave the putting green. </P>
+<P><B>Lost Ball</B><BR>If a player believes his ball may be lost outside a water hazard or is out of bounds, to save time, he should play a provisional ball. </P>
+<P>Players searching for a ball should signal the players in the group behind them to play through as soon as it becomes apparent that the ball will not easily be found. They should not search for five minutes before doing so. Having allowed the group behind to play through, they should not continue play until that group has passed and is out of range. </P>
+<H3 style=\"MARGIN: auto 0in\">Priority on the Course</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN lang=IN>Unless otherwise determined by the Committee, priority on the course is determined by a group\`s pace of play. Any group playing a whole round is entitled to pass a group playing a shorter round. The term \"group\" includes a single player.</SPAN><SPAN style=\"mso-ansi-language: EN-US\"><?xml:namespace prefix = o ns = \"urn:schemas-microsoft-com:office:office\" /><o:p></o:p></SPAN></P>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN style=\"mso-ansi-language: EN-US\"><o:p>&nbsp;</o:p></SPAN></P>
+<H3 style=\"MARGIN: auto 0in\">Care of the Course</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><B><SPAN lang=IN>Bunkers</SPAN></B><SPAN lang=IN><BR>Before leaving a bunker, players should carefully fill up and smooth over all holes and footprints made by them and any nearby made by others. If a rake is within reasonable proximity of the bunker, the rake should be used for this purpose. </SPAN></P>
+<P><B>Repair of Divots, Ball-Marks and Damage by Shoes</B><BR>Players should carefully repair any divot holes made by them and any damage to the putting green made by the impact of a ball (whether or not made by the player himself). On completion of the hole by all players in the group, damage to the putting green caused by golf shoes should be repaired. </P>
+<P><B>Preventing Unnecessary Damage</B><BR>Players should avoid causing damage to the course by removing divots when taking practice swings or by hitting the head of a club into the ground, whether in anger or for any other reason. Players should ensure that no damage is done to the putting green when putting down bags or the flagstick. </P>
+<P>In order to avoid damaging the hole, players and caddies should not stand too close to the hole and should take care during the handling of the flagstick and the removal of a ball from the hole. The head of a club should not be used to remove a ball from the hole. </P>
+<P>Players should not lean on their clubs when on the putting green, particularly when removing the ball from the hole. </P>
+<P>The flagstick should be properly replaced in the hole before players leave the putting green. </P>
+<P>Local notices regulating the movement of golf carts should be strictly observed. </P>
+<H3 style=\"MARGIN: auto 0in\">Conclusion; Penalties for Breach</H3>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt\"><SPAN lang=IN>If players follow the guidelines in this Section, it will make the game more enjoyable for everyone. </SPAN></P>
+<P>If a player consistently disregards these guidelines during a round or over a period of time to the detriment of others, it is recommended that the Committee consider taking appropriate disciplinary action against the offending player. Such action may, for example, include prohibiting play for a limited time on the course or in a certain number of competitions. This is considered to be justifiable in terms of protecting the interest of the majority of golfers who whish to play in accordance with these guidelines. </P>
+<P>In the case of a serious breach of Etiquette, the Committee may disqualify a player under <A href=\"http://golf.about.com/cs/rulesofgolf/a/rule33_2.htm\">Rule 33-7</A>. </P>
+<P>©USGA, used with permission</P>
