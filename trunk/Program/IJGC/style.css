@@ -1,0 +1,248 @@
+.handcursor{
+	cursor:hand;
+	cursor:pointer;
+}
+.judul{
+	font-size:12px;
+	font-weight:bold;
+	color:#333333;
+	font-family:Tahoma;
+}
+.support{
+	font-size:11px;
+	font-weight:bold;
+	color:#D2D2D2;
+	font-family:Trebuchet MS;
+}
+.paging{
+	font-size:11px;
+	font-weight:normal;
+	color:#666666;
+	font-family:Trebuchet MS;
+}
+.tgl{
+	font-size:10px;
+	font-weight:normal;
+	color:#990000;
+	font-family:Tahoma;
+}
+.tulisan{
+	font-size:12px;
+	color:#333333;
+	font-family:Tahoma;
+}
+.tulisan a{
+	font-size:12px;
+	color:#333333;
+	font-family:Tahoma;
+	text-decoration:none;
+	font-weight:bold;
+}
+.tulisan a:hover{
+	font-size:12px;
+	color:#333333;
+	font-family:Tahoma;
+	text-decoration:none;
+	font-weight:bold;
+}
+.tulisan a:visited{
+	font-size:12px;
+	color:#333333;
+	font-family:Tahoma;
+	text-decoration:none;
+	font-weight:bold;
+}
+.page{
+	font-size:11px;
+	color:#666666;
+	font-family:Trebuchet MS;
+}
+.page a{
+	font-size:11px;
+	color:#666666;
+	font-family:Trebuchet MS;
+	text-decoration:none;
+	font-weight:bold;
+}
+.page a:hover{
+	font-size:11px;
+	color:#666666;
+	font-family:Trebuchet MS;
+	text-decoration:none;
+	font-weight:bold;
+}
+.headcformat {
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color:#006699;
+}
+.page a:visited{
+	font-size:11px;
+	color:#666666;
+	font-family:Trebuchet MS;
+	text-decoration:none;
+	font-weight:bold;
+}
+h4{
+	color:#666666;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+}
+.reg{
+	font-family:Trebuchet MS;
+	font-size:10px;
+	color:#FFFFFF;
+	text-decoration:none
+}
+.time{
+	font-family:Trebuchet MS;
+	font-size:9px;
+	color:#990000;
+	text-decoration:none
+}
+.img a {
+	text-decoration: none;
+	color: #0033CC;
+	text-decoration: underline;
+	font: Verdana;
+	font-size: 11px;
+	border:0px;	
+}
+.img a:hover {
+	text-decoration: none;
+	color:#990000;
+	font:Verdana;
+	font-size: 11px;
+	border:0px;	
+}
+.img a:visited {
+	color:#000099;
+	text-decoration:underline;
+	font:Verdana;
+	font-size: 11px;
+	border:0px;	
+}
+.ctbl1 {
+	border-collapse: collapse;
+	border:0;
+}
+.ctbl2 {
+	border-collapse: collapse;
+}
+.ctbl3 {
+	border-collapse: collapse;
+	background-color: #C0C0C0;
+}
+.ctbl4 {
+	border-collapse: collapse;
+}
+.hmLogin{
+	font-family:Verdana;
+	font-size:11px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+a.mLogin {
+	text-decoration: none;
+	color:#FFFF33;
+	font: Verdana;
+	font-size: 11px;
+}
+a.mLogin:hover {
+	text-decoration: none;
+	color:#FFCC00;
+	font: Verdana;
+	font-size: 11px;
+}
+a.mLogin:visited {
+	text-decoration: none;
+	color:#FFFFFF;
+	font: Verdana;
+	font-size: 11px;
+}
+.headCentre{
+	width: 100%;
+	height: 10px;
+}
+.bergaris{
+	border-bottom: 1px solid #CCCCCC;
+	margin: 5;
+}
+.grsBwh{
+	border-bottom:1px solid #cccccc;
+}
+.pesan{
+	font-family:Verdana;
+	font-size:11px;
+	color:#990000;
+	font-weight:bold;
+}
+.note{
+	font-family:Verdana;
+	font-size:11px;
+	color:#999999;
+	font-style:italic;
+}
+#dropmenudiv{
+position:absolute;
+background-color: #E3FFB0;
+border:1px solid black;
+border-bottom-width: 0;
+font:normal 9px Verdana;
+line-height:18px;
+z-index:100;
+}
+
+#dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 1px 0;
+text-decoration: none;
+font-weight: normal;
+}
+
+#dropmenudiv a:hover{ /*hover background color*/
+background-color: #C7FF5E;
+}
+
+/* Sample CSS definition for the example list. Remove if desired */
+.navlist li {
+list-style-type: square;
+width: 135px;
+background-color: #FFFFB9;
+}
+.boardimg{
+border:1px solid #cccccc;
+}
+.bglogin{
+	background:url(images/bgLogin.jpg) repeat-x;
+}
+#listAlbum {
+	width: 175px;
+}
+
+#kotakAlbum{
+	float:left;
+	margin-right:10px;
+	margin-left:10px;
+	margin-bottom:10px;
+}
+.imgk {
+	border:1px solid;
+	border-color:#666666;
+	margin:2px;
+}
+#pformat {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	font: Tahoma;
+	font-size: 11px;
+	color:#333333;
+	float:left;
+}

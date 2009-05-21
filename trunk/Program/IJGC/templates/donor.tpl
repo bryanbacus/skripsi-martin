@@ -1,0 +1,3 @@
+<P><STRONG><SPAN style=\"FONT-SIZE: 13.5pt; COLOR: black\">Becoming a donors</SPAN></STRONG></P><SPAN lang=IN>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt; LINE-HEIGHT: normal; TEXT-ALIGN: justify; tab-stops: 463.5pt\">If you want to support our community on a personal basis or as an institution, please contact Dading Soetarso at 0811811608</P>
+<P class=MsoNormal style=\"MARGIN: 0in 0in 0pt; LINE-HEIGHT: normal; tab-stops: 463.5pt\"><?xml:namespace prefix = o ns = \"urn:schemas-microsoft-com:office:office\" /><o:p>Our account is:</o:p><BR><o:p>Bank Victoria</o:p><BR><o:p>Cabang Pondok Indah</o:p><BR><o:p>IJGC - Maria / Nur Rahma</o:p><BR><o:p><STRONG>Acct.no 9010103379</STRONG></o:p></SPAN></P>
