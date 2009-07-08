@@ -640,6 +640,7 @@ namespace SMS_Gateway
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMS Gateway";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMainClose);
             this.tabMain.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();

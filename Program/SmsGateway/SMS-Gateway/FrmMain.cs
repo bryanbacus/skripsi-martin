@@ -20,17 +20,20 @@ namespace SMS_Gateway
     public partial class FrmMain : Form
     {
         private GSMModem oGsmModem = new GSMModem();
+
         private String dialogCaption = "SMS Gateway";
      
 
         public FrmMain()
         {
             InitializeComponent();
+            this.oGsmModem.NewMessageReceived += new GSMModem.NewMessageReceivedEventHandler(this.oGsmModem_NewMessageReceived);
         }
+
 
         private void oGsmModem_NewMessageReceived(ATSMS.NewMessageReceivedEventArgs e)
         {
-            //txtMsg.Text = "Message from " + e.MSISDN + ". Message - " + e.TextMessage + ControlChars.CrLf;
+            MessageBox.Show("Message from " + e.MSISDN + ". Message - " + e.TextMessage, dialogCaption, MessageBoxButtons.OK);
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -146,6 +149,8 @@ namespace SMS_Gateway
             btnDiagnostic.Enabled = false;
             cmbInboxTimeInterval.SelectedIndex = 0;
             cmbOutboxTimeInterval.SelectedIndex = 0;
+
+            ConnectToDB();
         }
 
         private void chkTab() 
@@ -248,6 +253,42 @@ namespace SMS_Gateway
         private void btnOutboxClearLog_Click(object sender, EventArgs e)
         {
             this.txtOutBoxLog.Text = String.Empty;
+        }
+
+        private void FrmMainClose(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (oGsmModem.IsConnected)
+                {
+                    MessageBox.Show("disconnecting");
+                    oGsmModem.Disconnect();
+                }
+            }
+            catch (Exception ex) 
+            { 
+            
+            }
+        }
+
+        private void ConnectToDB() 
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            String myConnectionString;
+
+            myConnectionString = "server=127.0.0.1;uid=root;pwd=;database=test;";
+
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString);
+                conn.Open();
+                MessageBox.Show("Connected");
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
