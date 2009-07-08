@@ -20,8 +20,9 @@ namespace SMS_Gateway
     public partial class FrmMain : Form
     {
         private GSMModem oGsmModem = new GSMModem();
-       
         private String dialogCaption = "SMS Gateway";
+     
+
         public FrmMain()
         {
             InitializeComponent();
@@ -143,6 +144,8 @@ namespace SMS_Gateway
             btnConnect.Enabled = true;
             btnDisconnect.Enabled = false;
             btnDiagnostic.Enabled = false;
+            cmbInboxTimeInterval.SelectedIndex = 0;
+            cmbOutboxTimeInterval.SelectedIndex = 0;
         }
 
         private void chkTab() 
@@ -151,6 +154,100 @@ namespace SMS_Gateway
             { 
                 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String Receiver = "085668495684";
+            String Msg = "Test doank";
+            try
+            {
+                oGsmModem.SendSMS(Receiver, Msg);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show( ex.Message , dialogCaption , MessageBoxButtons.OK);           
+            }
+
+        }
+
+        private void btnInboxClearLog_Click(object sender, EventArgs e)
+        {
+            txtInboxLog.Text = String.Empty;
+        }
+
+        private void chkInboxTimeInterval_CheckedChanged(object sender, EventArgs e)
+        {
+            LogTimer(this.chkInboxTimeInterval, this.InboxTimer, this.cmbInboxTimeInterval);
+        }
+
+        private void LogTimer(CheckBox oCheckBox,Timer oTimer, ComboBox oCombo) 
+        {
+            if (oCheckBox.Checked)
+            {
+                oTimer.Stop();
+                oTimer.Interval = getInterval(oCombo.SelectedIndex);
+                oTimer.Start();
+            }
+            else
+            {
+                 oTimer.Stop();
+            }
+        }
+
+        private int getInterval(int oIndex) 
+        {
+            int iRet = 1000;
+            switch (oIndex) 
+            {
+                case 0:
+                    iRet = iRet*60; //1 minutes
+                    break;
+
+                case 1:
+                    iRet = iRet * 60 *5; //5 minutes
+                    break;
+                case 2:
+                    iRet = iRet * 60 * 15; //15 minutes
+                    break;
+                case 3:
+                    iRet = iRet * 60 * 30; //15 minutes
+                    break;
+                case 4:
+                    iRet = iRet * 60 * 60; //60 minutes
+                    break;
+            }
+            return iRet;
+        }
+
+        private void InboxTimer_Tick(object sender, EventArgs e)
+        {
+            this.txtInboxLog.Text += DateTime.Now + " ";
+        }
+
+        private void cmbInboxTimeInterval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LogTimer(this.chkInboxTimeInterval, this.InboxTimer, this.cmbInboxTimeInterval);
+        }
+
+        private void chkOutboxTimeInterval_CheckedChanged(object sender, EventArgs e)
+        {
+            LogTimer(this.chkOutboxTimeInterval, this.OutboxTimer, this.cmbOutboxTimeInterval);
+        }
+
+        private void cmbOutboxTimeInterval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LogTimer(this.chkOutboxTimeInterval, this.OutboxTimer, this.cmbOutboxTimeInterval);
+        }
+
+        private void OutboxTimer_Tick(object sender, EventArgs e)
+        {
+            this.txtOutBoxLog.Text  += DateTime.Now + " ";
+        }
+
+        private void btnOutboxClearLog_Click(object sender, EventArgs e)
+        {
+            this.txtOutBoxLog.Text = String.Empty;
         }
     }
 }
