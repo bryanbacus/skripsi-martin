@@ -28,8 +28,12 @@ namespace SMS_Gateway
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnDiagnostic = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -44,20 +48,16 @@ namespace SMS_Gateway
             this.Label2 = new System.Windows.Forms.Label();
             this.cboComPort = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabInbox = new System.Windows.Forms.TabPage();
-            this.tabOutbox = new System.Windows.Forms.TabPage();
-            this.Btn_Close = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tabReport = new System.Windows.Forms.TabPage();
-            this.chkInboxTimeInterval = new System.Windows.Forms.CheckBox();
-            this.cmbInboxTimeInterval = new System.Windows.Forms.ComboBox();
-            this.btnInboxClearLog = new System.Windows.Forms.Button();
-            this.txtInboxLog = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbInboxFilter = new System.Windows.Forms.ComboBox();
+            this.tabInbox = new System.Windows.Forms.TabPage();
             this.gridInbox = new System.Windows.Forms.DataGridView();
+            this.cmbInboxFilter = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtInboxLog = new System.Windows.Forms.TextBox();
+            this.btnInboxClearLog = new System.Windows.Forms.Button();
+            this.cmbInboxTimeInterval = new System.Windows.Forms.ComboBox();
+            this.chkInboxTimeInterval = new System.Windows.Forms.CheckBox();
+            this.tabOutbox = new System.Windows.Forms.TabPage();
             this.gridOutbox = new System.Windows.Forms.DataGridView();
             this.cmbOutBoxFilter = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -65,24 +65,28 @@ namespace SMS_Gateway
             this.btnOutboxClearLog = new System.Windows.Forms.Button();
             this.cmbOutboxTimeInterval = new System.Windows.Forms.ComboBox();
             this.chkOutboxTimeInterval = new System.Windows.Forms.CheckBox();
-            this.cmbReportFilter = new System.Windows.Forms.ComboBox();
-            this.dtReportFilter = new System.Windows.Forms.DateTimePicker();
-            this.gridReport = new System.Windows.Forms.DataGridView();
-            this.statusBarMain = new System.Windows.Forms.StatusStrip();
+            this.tabReport = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtReportDetail = new System.Windows.Forms.TextBox();
+            this.gridReport = new System.Windows.Forms.DataGridView();
+            this.dtReportFilter = new System.Windows.Forms.DateTimePicker();
+            this.cmbReportFilter = new System.Windows.Forms.ComboBox();
+            this.Btn_Close = new System.Windows.Forms.Button();
+            this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.InboxTimer = new System.Windows.Forms.Timer(this.components);
+            this.OutboxTimer = new System.Windows.Forms.Timer(this.components);
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabInbox.SuspendLayout();
-            this.tabOutbox.SuspendLayout();
-            this.tabReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridInbox)).BeginInit();
+            this.tabOutbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridOutbox)).BeginInit();
+            this.tabReport.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.statusBarMain.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -99,6 +103,7 @@ namespace SMS_Gateway
             // 
             // tabGeneral
             // 
+            this.tabGeneral.Controls.Add(this.button1);
             this.tabGeneral.Controls.Add(this.label8);
             this.tabGeneral.Controls.Add(this.label6);
             this.tabGeneral.Controls.Add(this.btnDiagnostic);
@@ -114,8 +119,40 @@ namespace SMS_Gateway
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(392, 277);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Send Test Message";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(391, 158);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(115, 19);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "SMS-Gateway";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(389, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 32);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "IJGC";
+            // 
             // btnDiagnostic
             // 
+            this.btnDiagnostic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDiagnostic.Location = new System.Drawing.Point(256, 278);
             this.btnDiagnostic.Name = "btnDiagnostic";
             this.btnDiagnostic.Size = new System.Drawing.Size(89, 23);
@@ -126,6 +163,7 @@ namespace SMS_Gateway
             // 
             // btnDisconnect
             // 
+            this.btnDisconnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisconnect.Location = new System.Drawing.Point(140, 278);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(110, 23);
@@ -136,6 +174,7 @@ namespace SMS_Gateway
             // 
             // btnConnect
             // 
+            this.btnConnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConnect.Location = new System.Drawing.Point(23, 278);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(111, 23);
@@ -165,6 +204,7 @@ namespace SMS_Gateway
             // 
             // cboFlowControl
             // 
+            this.cboFlowControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboFlowControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFlowControl.FormattingEnabled = true;
             this.cboFlowControl.Items.AddRange(new object[] {
@@ -178,6 +218,7 @@ namespace SMS_Gateway
             // 
             // cboStopBit
             // 
+            this.cboStopBit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboStopBit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStopBit.FormattingEnabled = true;
             this.cboStopBit.Items.AddRange(new object[] {
@@ -191,10 +232,10 @@ namespace SMS_Gateway
             // 
             // cboDataBit
             // 
+            this.cboDataBit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboDataBit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDataBit.FormattingEnabled = true;
             this.cboDataBit.Items.AddRange(new object[] {
-            "4",
             "5",
             "6",
             "7",
@@ -206,6 +247,7 @@ namespace SMS_Gateway
             // 
             // cboBaudRate
             // 
+            this.cboBaudRate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboBaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBaudRate.FormattingEnabled = true;
             this.cboBaudRate.Items.AddRange(new object[] {
@@ -260,6 +302,7 @@ namespace SMS_Gateway
             // 
             // cboComPort
             // 
+            this.cboComPort.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboComPort.FormattingEnabled = true;
             this.cboComPort.Items.AddRange(new object[] {
@@ -292,6 +335,16 @@ namespace SMS_Gateway
             this.label1.TabIndex = 1;
             this.label1.Text = "Com Port";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(392, 135);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(224, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "___________________________";
+            // 
             // tabInbox
             // 
             this.tabInbox.Controls.Add(this.gridInbox);
@@ -309,6 +362,83 @@ namespace SMS_Gateway
             this.tabInbox.Text = "Inbox";
             this.tabInbox.UseVisualStyleBackColor = true;
             // 
+            // gridInbox
+            // 
+            this.gridInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridInbox.Location = new System.Drawing.Point(22, 192);
+            this.gridInbox.Name = "gridInbox";
+            this.gridInbox.Size = new System.Drawing.Size(627, 150);
+            this.gridInbox.TabIndex = 6;
+            // 
+            // cmbInboxFilter
+            // 
+            this.cmbInboxFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbInboxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbInboxFilter.FormattingEnabled = true;
+            this.cmbInboxFilter.Location = new System.Drawing.Point(23, 165);
+            this.cmbInboxFilter.Name = "cmbInboxFilter";
+            this.cmbInboxFilter.Size = new System.Drawing.Size(121, 21);
+            this.cmbInboxFilter.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(625, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "_________________________________________________________________________________" +
+                "______________________";
+            // 
+            // txtInboxLog
+            // 
+            this.txtInboxLog.Location = new System.Drawing.Point(22, 44);
+            this.txtInboxLog.Multiline = true;
+            this.txtInboxLog.Name = "txtInboxLog";
+            this.txtInboxLog.ReadOnly = true;
+            this.txtInboxLog.Size = new System.Drawing.Size(627, 87);
+            this.txtInboxLog.TabIndex = 3;
+            // 
+            // btnInboxClearLog
+            // 
+            this.btnInboxClearLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInboxClearLog.Location = new System.Drawing.Point(559, 15);
+            this.btnInboxClearLog.Name = "btnInboxClearLog";
+            this.btnInboxClearLog.Size = new System.Drawing.Size(90, 23);
+            this.btnInboxClearLog.TabIndex = 2;
+            this.btnInboxClearLog.Text = "Clear &Now";
+            this.btnInboxClearLog.UseVisualStyleBackColor = true;
+            this.btnInboxClearLog.Click += new System.EventHandler(this.btnInboxClearLog_Click);
+            // 
+            // cmbInboxTimeInterval
+            // 
+            this.cmbInboxTimeInterval.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbInboxTimeInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbInboxTimeInterval.FormattingEnabled = true;
+            this.cmbInboxTimeInterval.Items.AddRange(new object[] {
+            "1  Minutes",
+            "5  Minutes",
+            "15 Minutes",
+            "30 Minutes",
+            "60 Minutes"});
+            this.cmbInboxTimeInterval.Location = new System.Drawing.Point(108, 17);
+            this.cmbInboxTimeInterval.Name = "cmbInboxTimeInterval";
+            this.cmbInboxTimeInterval.Size = new System.Drawing.Size(120, 21);
+            this.cmbInboxTimeInterval.TabIndex = 1;
+            this.cmbInboxTimeInterval.SelectedIndexChanged += new System.EventHandler(this.cmbInboxTimeInterval_SelectedIndexChanged);
+            // 
+            // chkInboxTimeInterval
+            // 
+            this.chkInboxTimeInterval.AutoSize = true;
+            this.chkInboxTimeInterval.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkInboxTimeInterval.Location = new System.Drawing.Point(22, 21);
+            this.chkInboxTimeInterval.Name = "chkInboxTimeInterval";
+            this.chkInboxTimeInterval.Size = new System.Drawing.Size(80, 17);
+            this.chkInboxTimeInterval.TabIndex = 0;
+            this.chkInboxTimeInterval.Text = "Clear Every";
+            this.chkInboxTimeInterval.UseVisualStyleBackColor = true;
+            this.chkInboxTimeInterval.CheckedChanged += new System.EventHandler(this.chkInboxTimeInterval_CheckedChanged);
+            // 
             // tabOutbox
             // 
             this.tabOutbox.Controls.Add(this.gridOutbox);
@@ -325,120 +455,6 @@ namespace SMS_Gateway
             this.tabOutbox.Text = "Outbox";
             this.tabOutbox.UseVisualStyleBackColor = true;
             // 
-            // Btn_Close
-            // 
-            this.Btn_Close.Location = new System.Drawing.Point(571, 408);
-            this.Btn_Close.Name = "Btn_Close";
-            this.Btn_Close.Size = new System.Drawing.Size(94, 23);
-            this.Btn_Close.TabIndex = 1;
-            this.Btn_Close.Text = "&Close";
-            this.Btn_Close.UseVisualStyleBackColor = true;
-            this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(389, 108);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 32);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "IJGC";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(392, 135);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(224, 16);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "___________________________";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(391, 158);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 19);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "SMS-Gateway";
-            // 
-            // tabReport
-            // 
-            this.tabReport.Controls.Add(this.groupBox2);
-            this.tabReport.Controls.Add(this.gridReport);
-            this.tabReport.Controls.Add(this.dtReportFilter);
-            this.tabReport.Controls.Add(this.cmbReportFilter);
-            this.tabReport.Location = new System.Drawing.Point(4, 22);
-            this.tabReport.Name = "tabReport";
-            this.tabReport.Size = new System.Drawing.Size(669, 359);
-            this.tabReport.TabIndex = 3;
-            this.tabReport.Text = "Report";
-            this.tabReport.UseVisualStyleBackColor = true;
-            // 
-            // chkInboxTimeInterval
-            // 
-            this.chkInboxTimeInterval.AutoSize = true;
-            this.chkInboxTimeInterval.Location = new System.Drawing.Point(22, 21);
-            this.chkInboxTimeInterval.Name = "chkInboxTimeInterval";
-            this.chkInboxTimeInterval.Size = new System.Drawing.Size(80, 17);
-            this.chkInboxTimeInterval.TabIndex = 0;
-            this.chkInboxTimeInterval.Text = "Clear Every";
-            this.chkInboxTimeInterval.UseVisualStyleBackColor = true;
-            // 
-            // cmbInboxTimeInterval
-            // 
-            this.cmbInboxTimeInterval.FormattingEnabled = true;
-            this.cmbInboxTimeInterval.Location = new System.Drawing.Point(108, 17);
-            this.cmbInboxTimeInterval.Name = "cmbInboxTimeInterval";
-            this.cmbInboxTimeInterval.Size = new System.Drawing.Size(120, 21);
-            this.cmbInboxTimeInterval.TabIndex = 1;
-            // 
-            // btnInboxClearLog
-            // 
-            this.btnInboxClearLog.Location = new System.Drawing.Point(559, 15);
-            this.btnInboxClearLog.Name = "btnInboxClearLog";
-            this.btnInboxClearLog.Size = new System.Drawing.Size(90, 23);
-            this.btnInboxClearLog.TabIndex = 2;
-            this.btnInboxClearLog.Text = "Clear &Now";
-            this.btnInboxClearLog.UseVisualStyleBackColor = true;
-            // 
-            // txtInboxLog
-            // 
-            this.txtInboxLog.Location = new System.Drawing.Point(22, 54);
-            this.txtInboxLog.Multiline = true;
-            this.txtInboxLog.Name = "txtInboxLog";
-            this.txtInboxLog.Size = new System.Drawing.Size(627, 77);
-            this.txtInboxLog.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 134);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(625, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "_________________________________________________________________________________" +
-                "______________________";
-            // 
-            // cmbInboxFilter
-            // 
-            this.cmbInboxFilter.FormattingEnabled = true;
-            this.cmbInboxFilter.Location = new System.Drawing.Point(23, 165);
-            this.cmbInboxFilter.Name = "cmbInboxFilter";
-            this.cmbInboxFilter.Size = new System.Drawing.Size(121, 21);
-            this.cmbInboxFilter.TabIndex = 5;
-            // 
-            // gridInbox
-            // 
-            this.gridInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridInbox.Location = new System.Drawing.Point(22, 192);
-            this.gridInbox.Name = "gridInbox";
-            this.gridInbox.Size = new System.Drawing.Size(627, 150);
-            this.gridInbox.TabIndex = 6;
-            // 
             // gridOutbox
             // 
             this.gridOutbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -449,6 +465,8 @@ namespace SMS_Gateway
             // 
             // cmbOutBoxFilter
             // 
+            this.cmbOutBoxFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbOutBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOutBoxFilter.FormattingEnabled = true;
             this.cmbOutBoxFilter.Location = new System.Drawing.Point(23, 165);
             this.cmbOutBoxFilter.Name = "cmbOutBoxFilter";
@@ -467,73 +485,65 @@ namespace SMS_Gateway
             // 
             // txtOutBoxLog
             // 
-            this.txtOutBoxLog.Location = new System.Drawing.Point(22, 54);
+            this.txtOutBoxLog.Location = new System.Drawing.Point(22, 44);
             this.txtOutBoxLog.Multiline = true;
             this.txtOutBoxLog.Name = "txtOutBoxLog";
-            this.txtOutBoxLog.Size = new System.Drawing.Size(627, 77);
+            this.txtOutBoxLog.ReadOnly = true;
+            this.txtOutBoxLog.Size = new System.Drawing.Size(627, 87);
             this.txtOutBoxLog.TabIndex = 10;
             // 
             // btnOutboxClearLog
             // 
+            this.btnOutboxClearLog.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOutboxClearLog.Location = new System.Drawing.Point(559, 15);
             this.btnOutboxClearLog.Name = "btnOutboxClearLog";
             this.btnOutboxClearLog.Size = new System.Drawing.Size(90, 23);
             this.btnOutboxClearLog.TabIndex = 9;
             this.btnOutboxClearLog.Text = "Clear &Now";
             this.btnOutboxClearLog.UseVisualStyleBackColor = true;
+            this.btnOutboxClearLog.Click += new System.EventHandler(this.btnOutboxClearLog_Click);
             // 
             // cmbOutboxTimeInterval
             // 
+            this.cmbOutboxTimeInterval.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbOutboxTimeInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOutboxTimeInterval.FormattingEnabled = true;
+            this.cmbOutboxTimeInterval.Items.AddRange(new object[] {
+            "1  Minutes",
+            "5  Minutes",
+            "15 Minutes",
+            "30 Minutes",
+            "60 Minutes"});
             this.cmbOutboxTimeInterval.Location = new System.Drawing.Point(108, 17);
             this.cmbOutboxTimeInterval.Name = "cmbOutboxTimeInterval";
             this.cmbOutboxTimeInterval.Size = new System.Drawing.Size(120, 21);
             this.cmbOutboxTimeInterval.TabIndex = 8;
+            this.cmbOutboxTimeInterval.SelectedIndexChanged += new System.EventHandler(this.cmbOutboxTimeInterval_SelectedIndexChanged);
             // 
             // chkOutboxTimeInterval
             // 
             this.chkOutboxTimeInterval.AutoSize = true;
+            this.chkOutboxTimeInterval.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkOutboxTimeInterval.Location = new System.Drawing.Point(22, 21);
             this.chkOutboxTimeInterval.Name = "chkOutboxTimeInterval";
             this.chkOutboxTimeInterval.Size = new System.Drawing.Size(80, 17);
             this.chkOutboxTimeInterval.TabIndex = 7;
             this.chkOutboxTimeInterval.Text = "Clear Every";
             this.chkOutboxTimeInterval.UseVisualStyleBackColor = true;
+            this.chkOutboxTimeInterval.CheckedChanged += new System.EventHandler(this.chkOutboxTimeInterval_CheckedChanged);
             // 
-            // cmbReportFilter
+            // tabReport
             // 
-            this.cmbReportFilter.FormattingEnabled = true;
-            this.cmbReportFilter.Location = new System.Drawing.Point(21, 21);
-            this.cmbReportFilter.Name = "cmbReportFilter";
-            this.cmbReportFilter.Size = new System.Drawing.Size(121, 21);
-            this.cmbReportFilter.TabIndex = 0;
-            // 
-            // dtReportFilter
-            // 
-            this.dtReportFilter.CustomFormat = "dd-mm-yyyy";
-            this.dtReportFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtReportFilter.Location = new System.Drawing.Point(148, 22);
-            this.dtReportFilter.Name = "dtReportFilter";
-            this.dtReportFilter.Size = new System.Drawing.Size(113, 20);
-            this.dtReportFilter.TabIndex = 1;
-            // 
-            // gridReport
-            // 
-            this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridReport.Location = new System.Drawing.Point(21, 48);
-            this.gridReport.Name = "gridReport";
-            this.gridReport.Size = new System.Drawing.Size(632, 125);
-            this.gridReport.TabIndex = 2;
-            // 
-            // statusBarMain
-            // 
-            this.statusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusBarMain.Location = new System.Drawing.Point(0, 438);
-            this.statusBarMain.Name = "statusBarMain";
-            this.statusBarMain.Size = new System.Drawing.Size(697, 22);
-            this.statusBarMain.TabIndex = 2;
-            this.statusBarMain.Text = "Not Connected";
+            this.tabReport.Controls.Add(this.groupBox2);
+            this.tabReport.Controls.Add(this.gridReport);
+            this.tabReport.Controls.Add(this.dtReportFilter);
+            this.tabReport.Controls.Add(this.cmbReportFilter);
+            this.tabReport.Location = new System.Drawing.Point(4, 22);
+            this.tabReport.Name = "tabReport";
+            this.tabReport.Size = new System.Drawing.Size(669, 359);
+            this.tabReport.TabIndex = 3;
+            this.tabReport.Text = "Report";
+            this.tabReport.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -553,11 +563,68 @@ namespace SMS_Gateway
             this.txtReportDetail.Size = new System.Drawing.Size(620, 138);
             this.txtReportDetail.TabIndex = 0;
             // 
+            // gridReport
+            // 
+            this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridReport.Location = new System.Drawing.Point(21, 48);
+            this.gridReport.Name = "gridReport";
+            this.gridReport.Size = new System.Drawing.Size(632, 125);
+            this.gridReport.TabIndex = 2;
+            // 
+            // dtReportFilter
+            // 
+            this.dtReportFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtReportFilter.CustomFormat = "dd-MM-yyyy";
+            this.dtReportFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtReportFilter.Location = new System.Drawing.Point(148, 22);
+            this.dtReportFilter.Name = "dtReportFilter";
+            this.dtReportFilter.Size = new System.Drawing.Size(113, 20);
+            this.dtReportFilter.TabIndex = 1;
+            // 
+            // cmbReportFilter
+            // 
+            this.cmbReportFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbReportFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReportFilter.FormattingEnabled = true;
+            this.cmbReportFilter.Location = new System.Drawing.Point(21, 21);
+            this.cmbReportFilter.Name = "cmbReportFilter";
+            this.cmbReportFilter.Size = new System.Drawing.Size(121, 21);
+            this.cmbReportFilter.TabIndex = 0;
+            // 
+            // Btn_Close
+            // 
+            this.Btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Close.Location = new System.Drawing.Point(571, 408);
+            this.Btn_Close.Name = "Btn_Close";
+            this.Btn_Close.Size = new System.Drawing.Size(94, 23);
+            this.Btn_Close.TabIndex = 1;
+            this.Btn_Close.Text = "&Close";
+            this.Btn_Close.UseVisualStyleBackColor = true;
+            this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
+            // 
+            // statusBarMain
+            // 
+            this.statusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusBarMain.Location = new System.Drawing.Point(0, 438);
+            this.statusBarMain.Name = "statusBarMain";
+            this.statusBarMain.Size = new System.Drawing.Size(697, 22);
+            this.statusBarMain.TabIndex = 2;
+            this.statusBarMain.Text = "Not Connected";
+            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // InboxTimer
+            // 
+            this.InboxTimer.Tick += new System.EventHandler(this.InboxTimer_Tick);
+            // 
+            // OutboxTimer
+            // 
+            this.OutboxTimer.Tick += new System.EventHandler(this.OutboxTimer_Tick);
             // 
             // FrmMain
             // 
@@ -580,16 +647,16 @@ namespace SMS_Gateway
             this.groupBox1.PerformLayout();
             this.tabInbox.ResumeLayout(false);
             this.tabInbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridInbox)).EndInit();
             this.tabOutbox.ResumeLayout(false);
             this.tabOutbox.PerformLayout();
-            this.tabReport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridInbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOutbox)).EndInit();
+            this.tabReport.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).EndInit();
             this.statusBarMain.ResumeLayout(false);
             this.statusBarMain.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,6 +708,9 @@ namespace SMS_Gateway
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtReportDetail;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer InboxTimer;
+        private System.Windows.Forms.Timer OutboxTimer;
     }
 }
 
