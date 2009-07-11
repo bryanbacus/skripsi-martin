@@ -1,4 +1,4 @@
-namespace SMS_Gateway.AppClass
+namespace SMS_Gateway.FormDiagnostic
 {
     partial class FrmDiagnostic
     {

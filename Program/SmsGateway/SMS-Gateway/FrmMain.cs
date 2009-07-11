@@ -13,12 +13,21 @@ using ATSMS.Common;
 using ATSMS.SMS.Decoder;
 using ATSMS.SMS.Encoder;
 
-using SMS_Gateway.AppClass;
+using Com.Martin.SMS.DB;
+
+using MySql.Data.MySqlClient;
+
+using SMS_Gateway.FormDiagnostic;
+using SMS_Gateway.FormBroadcastSchedule;
+using SMS_Gateway.FormCommandRegister;
 
 namespace SMS_Gateway
 {
     public partial class FrmMain : Form
     {
+
+        private DBProvider dbprovider = new DBProvider();
+      
         private GSMModem oGsmModem = new GSMModem();
 
         private String dialogCaption = "SMS Gateway";
@@ -147,8 +156,11 @@ namespace SMS_Gateway
             btnConnect.Enabled = true;
             btnDisconnect.Enabled = false;
             btnDiagnostic.Enabled = false;
+            
             cmbInboxTimeInterval.SelectedIndex = 0;
             cmbOutboxTimeInterval.SelectedIndex = 0;
+            cmbInboxFilter.SelectedIndex = 0;
+            cmbOutBoxFilter.SelectedIndex = 0;
 
             ConnectToDB();
         }
@@ -273,22 +285,89 @@ namespace SMS_Gateway
 
         private void ConnectToDB() 
         {
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            String myConnectionString;
-
-            myConnectionString = "server=127.0.0.1;uid=root;pwd=;database=test;";
-
-            try
+            
+            if (!dbprovider.dbConnect())
             {
-                conn = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString);
-                conn.Open();
-                MessageBox.Show("Connected");
+                MessageBox.Show("Cannot Connect to Database!!");
+                this.Close();
+                return;
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+           
+            
 
         }
+
+        private void Btn_Add_Broadcast_Click(object sender, EventArgs e)
+        {
+            FrmBroadcastSchedule frmBroadcast = new FrmBroadcastSchedule();
+            frmBroadcast.ShowDialog(this);
+        }
+
+        private void Btn_Add_Cmd_Click(object sender, EventArgs e)
+        {
+            FrmCommandRegister frmCmdReg = new FrmCommandRegister();
+            frmCmdReg.ShowDialog();
+        }
+
+        private void cmbOutBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String sqlCmd = String.Empty;
+            switch (((ComboBox)sender).SelectedIndex)
+            {
+                case 0 :
+                    sqlCmd = "select * from sms_output";
+                    break;
+                case 1:
+                    sqlCmd = "select * from sms_output where status='OK'";
+                    break;
+
+                case 2:
+                    sqlCmd = "select * from sms_output where status='NOK'";
+                    break;
+                default:
+                    sqlCmd = "select * from sms_output";
+                    break;
+            }
+                        
+            DataTable dtOutbox = dbprovider.getData(sqlCmd);
+            this.gridOutbox.DataSource = dtOutbox;
+            this.gridOutbox.AllowUserToAddRows = false;
+            this.gridOutbox.AllowUserToDeleteRows = false;
+            this.gridOutbox.AllowUserToResizeColumns = true;
+            this.gridOutbox.AllowUserToResizeRows = false;
+            this.gridOutbox.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+
+        private void cmbInboxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String sqlCmd = String.Empty;
+            switch (((ComboBox)sender).SelectedIndex)
+            {
+                case 0:
+                    sqlCmd = "select * from sms_input";
+                    break;
+                case 1:
+                    sqlCmd = "select * from sms_input where status='OK'";
+                    break;
+
+                case 2:
+                    sqlCmd = "select * from sms_input where status='NOK'";
+                    break;
+                default:
+                    sqlCmd = "select * from sms_input";
+                    break;
+            }
+               
+            DataTable dtInbox = dbprovider.getData(sqlCmd);
+            this.gridInbox.DataSource = dtInbox;
+            this.gridInbox.AllowUserToAddRows = false;
+            this.gridInbox.AllowUserToDeleteRows = false;
+            this.gridInbox.AllowUserToResizeColumns = true;
+            this.gridInbox.AllowUserToResizeRows = false;
+            this.gridInbox.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+
+        
     }
 }

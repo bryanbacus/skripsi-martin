@@ -49,6 +49,19 @@
     <Compile Include="AppClass\AbstractCommand.cs" />
     <Compile Include="AppClass\CommandProcessor.cs" />
     <Compile Include="AppClass\ConfigLoader.cs" />
+    <Compile Include="AppClass\DBProvider.cs" />
+    <Compile Include="FrmBroadcastSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBroadcastSchedule.Designer.cs">
+      <DependentUpon>FrmBroadcastSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCommandRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCommandRegister.Designer.cs">
+      <DependentUpon>FrmCommandRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDiagnostic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +79,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBroadcastSchedule.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmBroadcastSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCommandRegister.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmCommandRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDiagnostic.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmDiagnostic.cs</DependentUpon>
