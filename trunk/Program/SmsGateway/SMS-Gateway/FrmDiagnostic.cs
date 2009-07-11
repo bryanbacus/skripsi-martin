@@ -13,7 +13,7 @@ using ATSMS.Common;
 using ATSMS.SMS.Decoder;
 using ATSMS.SMS.Encoder;
 
-namespace SMS_Gateway.AppClass
+namespace SMS_Gateway.FormDiagnostic
 {
     public partial class FrmDiagnostic : Form
     {
