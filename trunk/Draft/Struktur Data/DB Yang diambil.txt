@@ -1,0 +1,11 @@
+m_course
+m_course_detail
+m_course_type
+m_course_length
+t_games
+t_games_result
+t_games_score
+t_tournaments
+t_tournaments_round
+t_tournaments_player
+tbl_memberships
