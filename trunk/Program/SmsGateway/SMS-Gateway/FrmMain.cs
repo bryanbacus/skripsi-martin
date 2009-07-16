@@ -163,6 +163,8 @@ namespace SMS_Gateway
             cmbOutBoxFilter.SelectedIndex = 0;
 
             ConnectToDB();
+            showCommandRegister();
+            showBroadcastSchedule();
         }
 
         private void chkTab() 
@@ -292,10 +294,6 @@ namespace SMS_Gateway
                 this.Close();
                 return;
             }
-
-           
-            
-
         }
 
         private void Btn_Add_Broadcast_Click(object sender, EventArgs e)
@@ -367,6 +365,81 @@ namespace SMS_Gateway
             this.gridInbox.AllowUserToResizeRows = false;
             this.gridInbox.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
+
+        private void showCommandRegister() 
+        { 
+            String sqlCmd = String.Empty;
+
+            sqlCmd = "select * from daftar_register";
+
+            DataTable dtCommand = dbprovider.getData(sqlCmd);
+                
+            this.gridComands.DataSource = dtCommand;
+            
+            DataGridViewLinkColumn editLink = new DataGridViewLinkColumn();
+            editLink.Text = "edit";
+            editLink.UseColumnTextForLinkValue = true;
+            editLink.ToolTipText = "Edit Data";
+            editLink.Width = 40;
+            editLink.LinkColor = Color.Blue;
+            
+
+            DataGridViewLinkColumn deleteLink = new DataGridViewLinkColumn();
+            deleteLink.Text = "delete";
+            deleteLink.UseColumnTextForLinkValue = true;
+            deleteLink.ToolTipText = "Delete Data";
+            deleteLink.Width = 40;
+            deleteLink.LinkColor = Color.Red;
+
+            this.gridComands.Columns.Add(editLink);
+            this.gridComands.Columns.Add(deleteLink);
+
+
+            this.gridComands.AllowUserToAddRows = false;
+            this.gridComands.AllowUserToDeleteRows = false;
+            this.gridComands.AllowUserToResizeColumns = true;
+            this.gridComands.AllowUserToResizeRows = false;
+            this.gridComands.EditMode = DataGridViewEditMode.EditProgrammatically;
+        
+        }
+
+        private void showBroadcastSchedule()
+        {
+            String sqlCmd = String.Empty;
+
+            sqlCmd = "select * from jadwal_broadcast";
+
+            DataTable dtCommand = dbprovider.getData(sqlCmd);
+
+            this.gridBroadcastSchedule.DataSource = dtCommand;
+            
+            this.gridBroadcastSchedule.AllowUserToAddRows = false;
+            this.gridBroadcastSchedule.AllowUserToDeleteRows = false;
+            this.gridBroadcastSchedule.AllowUserToResizeColumns = true;
+            this.gridBroadcastSchedule.AllowUserToResizeRows = false;
+            this.gridBroadcastSchedule.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+
+        }
+
+        private void gridComands_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.RowIndex >= this.gridComands.Rows.Count || e.ColumnIndex < 0 || e.ColumnIndex >= this.gridComands.Columns.Count)
+                return;
+
+            DataGridViewLinkCell linkCell = this.gridComands.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewLinkCell;
+
+            if (linkCell != null) 
+            {
+                String s = this.gridComands.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String s2 = this.gridComands.Rows[e.RowIndex].Cells[1].Value.ToString(); 
+
+                MessageBox.Show("ada : " + s + "-" + s2); 
+            
+            }
+
+        }
+
 
         
     }
