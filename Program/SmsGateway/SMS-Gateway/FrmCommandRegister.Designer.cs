@@ -29,25 +29,25 @@ namespace SMS_Gateway.FormCommandRegister
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_AssemblyName = new System.Windows.Forms.TextBox();
+            this.Txt_ClassName = new System.Windows.Forms.TextBox();
+            this.Txt_CmdName = new System.Windows.Forms.TextBox();
+            this.Txt_CmdType = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Btn_Save = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Txt_AssemblyName);
+            this.groupBox1.Controls.Add(this.Txt_ClassName);
+            this.groupBox1.Controls.Add(this.Txt_CmdName);
+            this.groupBox1.Controls.Add(this.Txt_CmdType);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -58,37 +58,37 @@ namespace SMS_Gateway.FormCommandRegister
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // textBox4
+            // Txt_AssemblyName
             // 
-            this.textBox4.Location = new System.Drawing.Point(126, 110);
-            this.textBox4.MaxLength = 255;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 20);
-            this.textBox4.TabIndex = 7;
+            this.Txt_AssemblyName.Location = new System.Drawing.Point(126, 110);
+            this.Txt_AssemblyName.MaxLength = 255;
+            this.Txt_AssemblyName.Name = "Txt_AssemblyName";
+            this.Txt_AssemblyName.Size = new System.Drawing.Size(191, 20);
+            this.Txt_AssemblyName.TabIndex = 7;
             // 
-            // textBox3
+            // Txt_ClassName
             // 
-            this.textBox3.Location = new System.Drawing.Point(126, 79);
-            this.textBox3.MaxLength = 255;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 6;
+            this.Txt_ClassName.Location = new System.Drawing.Point(126, 79);
+            this.Txt_ClassName.MaxLength = 255;
+            this.Txt_ClassName.Name = "Txt_ClassName";
+            this.Txt_ClassName.Size = new System.Drawing.Size(191, 20);
+            this.Txt_ClassName.TabIndex = 6;
             // 
-            // textBox2
+            // Txt_CmdName
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 51);
-            this.textBox2.MaxLength = 15;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(96, 20);
-            this.textBox2.TabIndex = 5;
+            this.Txt_CmdName.Location = new System.Drawing.Point(126, 51);
+            this.Txt_CmdName.MaxLength = 15;
+            this.Txt_CmdName.Name = "Txt_CmdName";
+            this.Txt_CmdName.Size = new System.Drawing.Size(96, 20);
+            this.Txt_CmdName.TabIndex = 5;
             // 
-            // textBox1
+            // Txt_CmdType
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 24);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(61, 20);
-            this.textBox1.TabIndex = 4;
+            this.Txt_CmdType.Location = new System.Drawing.Point(126, 24);
+            this.Txt_CmdType.MaxLength = 5;
+            this.Txt_CmdType.Name = "Txt_CmdType";
+            this.Txt_CmdType.Size = new System.Drawing.Size(61, 20);
+            this.Txt_CmdType.TabIndex = 4;
             // 
             // label4
             // 
@@ -126,14 +126,15 @@ namespace SMS_Gateway.FormCommandRegister
             this.label1.TabIndex = 0;
             this.label1.Text = "Command Type";
             // 
-            // button1
+            // Btn_Save
             // 
-            this.button1.Location = new System.Drawing.Point(274, 172);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "&Add / Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_Save.Location = new System.Drawing.Point(274, 172);
+            this.Btn_Save.Name = "Btn_Save";
+            this.Btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Save.TabIndex = 1;
+            this.Btn_Save.Text = "&Add / Save";
+            this.Btn_Save.UseVisualStyleBackColor = true;
+            this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
             // 
             // button2
             // 
@@ -151,7 +152,7 @@ namespace SMS_Gateway.FormCommandRegister
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 211);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Btn_Save);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmCommandRegister";
@@ -168,15 +169,15 @@ namespace SMS_Gateway.FormCommandRegister
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_AssemblyName;
+        private System.Windows.Forms.TextBox Txt_ClassName;
+        private System.Windows.Forms.TextBox Txt_CmdName;
+        private System.Windows.Forms.TextBox Txt_CmdType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_Save;
         private System.Windows.Forms.Button button2;
     }
 }

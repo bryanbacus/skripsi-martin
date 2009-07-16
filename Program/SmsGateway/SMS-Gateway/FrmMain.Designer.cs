@@ -71,16 +71,16 @@ namespace SMS_Gateway
             this.gridReport = new System.Windows.Forms.DataGridView();
             this.dtReportFilter = new System.Windows.Forms.DateTimePicker();
             this.cmbReportFilter = new System.Windows.Forms.ComboBox();
+            this.tabSettings = new System.Windows.Forms.TabPage();
+            this.gridComands = new System.Windows.Forms.DataGridView();
+            this.Btn_Add_Cmd = new System.Windows.Forms.Button();
+            this.gridBroadcastSchedule = new System.Windows.Forms.DataGridView();
+            this.Btn_Add_Broadcast = new System.Windows.Forms.Button();
             this.Btn_Close = new System.Windows.Forms.Button();
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.InboxTimer = new System.Windows.Forms.Timer(this.components);
             this.OutboxTimer = new System.Windows.Forms.Timer(this.components);
-            this.tabSettings = new System.Windows.Forms.TabPage();
-            this.Btn_Add_Broadcast = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Btn_Add_Cmd = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,10 +91,10 @@ namespace SMS_Gateway
             this.tabReport.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
-            this.statusBarMain.SuspendLayout();
             this.tabSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridComands)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBroadcastSchedule)).BeginInit();
+            this.statusBarMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -610,6 +610,58 @@ namespace SMS_Gateway
             this.cmbReportFilter.Size = new System.Drawing.Size(121, 21);
             this.cmbReportFilter.TabIndex = 0;
             // 
+            // tabSettings
+            // 
+            this.tabSettings.Controls.Add(this.gridComands);
+            this.tabSettings.Controls.Add(this.Btn_Add_Cmd);
+            this.tabSettings.Controls.Add(this.gridBroadcastSchedule);
+            this.tabSettings.Controls.Add(this.Btn_Add_Broadcast);
+            this.tabSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabSettings.Name = "tabSettings";
+            this.tabSettings.Size = new System.Drawing.Size(669, 359);
+            this.tabSettings.TabIndex = 4;
+            this.tabSettings.Text = "Settings";
+            this.tabSettings.UseVisualStyleBackColor = true;
+            // 
+            // gridComands
+            // 
+            this.gridComands.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridComands.Location = new System.Drawing.Point(19, 228);
+            this.gridComands.Name = "gridComands";
+            this.gridComands.Size = new System.Drawing.Size(634, 121);
+            this.gridComands.TabIndex = 3;
+            this.gridComands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridComands_CellContentClick);
+            // 
+            // Btn_Add_Cmd
+            // 
+            this.Btn_Add_Cmd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Add_Cmd.Location = new System.Drawing.Point(19, 199);
+            this.Btn_Add_Cmd.Name = "Btn_Add_Cmd";
+            this.Btn_Add_Cmd.Size = new System.Drawing.Size(198, 23);
+            this.Btn_Add_Cmd.TabIndex = 2;
+            this.Btn_Add_Cmd.Text = "Add Command Request / Broadcast";
+            this.Btn_Add_Cmd.UseVisualStyleBackColor = true;
+            this.Btn_Add_Cmd.Click += new System.EventHandler(this.Btn_Add_Cmd_Click);
+            // 
+            // gridBroadcastSchedule
+            // 
+            this.gridBroadcastSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBroadcastSchedule.Location = new System.Drawing.Point(19, 51);
+            this.gridBroadcastSchedule.Name = "gridBroadcastSchedule";
+            this.gridBroadcastSchedule.Size = new System.Drawing.Size(634, 122);
+            this.gridBroadcastSchedule.TabIndex = 1;
+            // 
+            // Btn_Add_Broadcast
+            // 
+            this.Btn_Add_Broadcast.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Add_Broadcast.Location = new System.Drawing.Point(19, 22);
+            this.Btn_Add_Broadcast.Name = "Btn_Add_Broadcast";
+            this.Btn_Add_Broadcast.Size = new System.Drawing.Size(137, 23);
+            this.Btn_Add_Broadcast.TabIndex = 0;
+            this.Btn_Add_Broadcast.Text = "Add Broadcast Schedule";
+            this.Btn_Add_Broadcast.UseVisualStyleBackColor = true;
+            this.Btn_Add_Broadcast.Click += new System.EventHandler(this.Btn_Add_Broadcast_Click);
+            // 
             // Btn_Close
             // 
             this.Btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -645,57 +697,6 @@ namespace SMS_Gateway
             // 
             this.OutboxTimer.Tick += new System.EventHandler(this.OutboxTimer_Tick);
             // 
-            // tabSettings
-            // 
-            this.tabSettings.Controls.Add(this.dataGridView2);
-            this.tabSettings.Controls.Add(this.Btn_Add_Cmd);
-            this.tabSettings.Controls.Add(this.dataGridView1);
-            this.tabSettings.Controls.Add(this.Btn_Add_Broadcast);
-            this.tabSettings.Location = new System.Drawing.Point(4, 22);
-            this.tabSettings.Name = "tabSettings";
-            this.tabSettings.Size = new System.Drawing.Size(669, 359);
-            this.tabSettings.TabIndex = 4;
-            this.tabSettings.Text = "Settings";
-            this.tabSettings.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Add_Broadcast
-            // 
-            this.Btn_Add_Broadcast.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Add_Broadcast.Location = new System.Drawing.Point(19, 22);
-            this.Btn_Add_Broadcast.Name = "Btn_Add_Broadcast";
-            this.Btn_Add_Broadcast.Size = new System.Drawing.Size(137, 23);
-            this.Btn_Add_Broadcast.TabIndex = 0;
-            this.Btn_Add_Broadcast.Text = "Add Broadcast Schedule";
-            this.Btn_Add_Broadcast.UseVisualStyleBackColor = true;
-            this.Btn_Add_Broadcast.Click += new System.EventHandler(this.Btn_Add_Broadcast_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 51);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(634, 122);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // Btn_Add_Cmd
-            // 
-            this.Btn_Add_Cmd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Add_Cmd.Location = new System.Drawing.Point(19, 199);
-            this.Btn_Add_Cmd.Name = "Btn_Add_Cmd";
-            this.Btn_Add_Cmd.Size = new System.Drawing.Size(198, 23);
-            this.Btn_Add_Cmd.TabIndex = 2;
-            this.Btn_Add_Cmd.Text = "Add Command Request / Broadcast";
-            this.Btn_Add_Cmd.UseVisualStyleBackColor = true;
-            this.Btn_Add_Cmd.Click += new System.EventHandler(this.Btn_Add_Cmd_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(19, 228);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(634, 121);
-            this.dataGridView2.TabIndex = 3;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,11 +727,11 @@ namespace SMS_Gateway
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).EndInit();
+            this.tabSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridComands)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBroadcastSchedule)).EndInit();
             this.statusBarMain.ResumeLayout(false);
             this.statusBarMain.PerformLayout();
-            this.tabSettings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -788,8 +789,8 @@ namespace SMS_Gateway
         private System.Windows.Forms.TabPage tabSettings;
         private System.Windows.Forms.Button Btn_Add_Broadcast;
         private System.Windows.Forms.Button Btn_Add_Cmd;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView gridBroadcastSchedule;
+        private System.Windows.Forms.DataGridView gridComands;
     }
 }
 
