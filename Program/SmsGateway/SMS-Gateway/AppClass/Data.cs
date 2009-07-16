@@ -18,7 +18,20 @@ namespace Com.Martin.SMS.Data {
         public DateTime DateSent;
         public DateTime DateProcess;
         public SMSType Type;
+        public String RegisterName;
+        public String RegisterType;
         public SMSIncoming SMSRequest;
+    }
+
+    public struct BroadcastScheduler {
+        public int ID;
+        public int MaximumLoop;
+        public int CurrentLoop;
+        public int IntervalDays;
+        public String RegisterName;
+        public String RegisterType;
+        public DateTime NextExecuteTime;
+        public DateTime LastExecuteTime;
     }
 
     public enum SMSType {

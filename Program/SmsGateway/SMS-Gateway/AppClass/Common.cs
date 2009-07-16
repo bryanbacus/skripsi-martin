@@ -5,18 +5,17 @@ using System.Text;
 namespace Com.Martin.SMS.Common {
 
     public static class CommandProcessor {
-        public static Com.Martin.SMS.Data.StructSMS ProcessRequest(Com.Martin.SMS.Data.StructSMS Request) {
+
+        public static Com.Martin.SMS.Data.SMSIncoming ProcessRequest(Com.Martin.SMS.Data.StructSMS Request) {
 
             return Request;
         }
 
-        // Private Parse SMS -> Command
+        public static void ProcessBroadcast() {
+        }
 
-        // Instance Command
-
-        // Read Config
-
-
+        public static void SendOutgoingSMS() {
+        }
     }
 
     public class SMSHelper {
@@ -32,12 +31,24 @@ namespace Com.Martin.SMS.Common {
 
         public static Com.Martin.SMS.Data.SMSOutgoing GetOutgoingMessage(String ID) {
         }
+
+        public static void SaveBroadcastMessage(List<Com.Martin.SMS.Data.SMSOutgoing> OutgoingList) {
+        }
+
+        public static List<Com.Martin.SMS.Data.SMSOutgoing> GetOutgoingSMSList() {
+        }
+
+        public static List<Com.Martin.SMS.Data.BroadcastScheduler> GetBroadcastScheduler(DateTime NextExecute) {
+        }
     }
 
     class ConfigLoader {
 
-        public Com.Martin.SMS.Command.AbstractCommand CreateCommand(String CommandType, String CommandName) {
+        public Com.Martin.SMS.Command.AbstractRequest CreateRequestCommand(String CommandType, String CommandName) {
             throw new Com.Martin.SMS.Exception.SMSException();
+        }
+
+        public Com.Martin.SMS.Command.AbstractBroadcast CreateBroadcastCommand(String CommandType, String CommandName) {
         }
     }
 }
