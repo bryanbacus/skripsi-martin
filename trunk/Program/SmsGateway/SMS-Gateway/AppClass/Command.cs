@@ -20,15 +20,14 @@ namespace Com.Martin.SMS.Command {
             set {
                 this.request = value;
             }
+            get {
+                return this.request;
+            }
         }
 
         public abstract String GetName();
 
         public abstract String GetType();
-
-        protected Com.Martin.SMS.Data.SMSIncoming GetRequestSMS() {
-            return this.request;
-        }
 
         public abstract Com.Martin.SMS.Data.SMSOutgoing Execute();
     }
