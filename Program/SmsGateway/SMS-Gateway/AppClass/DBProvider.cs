@@ -6,37 +6,47 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 
 
-namespace Com.Martin.SMS.DB {
-    class DBProvider {
-        private MySqlConnection conn = new MySqlConnection("server=127.0.0.1;uid=root;pwd=;database=smsgolf;");
-
-        public void DBConn() {
-
+namespace Com.Martin.SMS.DB
+{
+    class DBProvider
+    {
+        private MySqlConnection conn = new MySqlConnection("server=127.0.0.1;uid=root;pwd=;database=smsgolf;Allow Zero Datetime=true");
+        
+        public void DBConn()
+        { 
+        
         }
 
-        public void dbClose() {
+        public void dbClose() 
+        {
             if (conn.State != ConnectionState.Closed)
                 conn.Close();
         }
 
-        public bool dbConnect() {
+        public bool dbConnect()
+        {   
             bool isOK = false;
-            try {
+            try
+            {   
                 if (conn.State == ConnectionState.Open)
                     conn.Close();
 
                 conn.Open();
                 isOK = true;
-            } catch (MySqlException ex) {
+            }
+            catch (MySqlException ex)
+            {
 
             }
             return isOK;
         }
 
-        public DataTable getData(String sqlCmd) {
+        public DataTable getData(String sqlCmd) 
+        {
             DataTable dtResult = new DataTable();
 
-            try {
+            try
+            {
                 if (conn.State == ConnectionState.Closed)
                     dbConnect();
 
@@ -47,17 +57,21 @@ namespace Com.Martin.SMS.DB {
                 command.CommandText = sqlCmd;
                 adapter.SelectCommand = command;
                 adapter.Fill(dtResult);
-            } catch (MySqlException ex) {
-
             }
-
+            catch (MySqlException ex) 
+            { 
+            
+            }
+            
             return dtResult;
         }
 
-        public DataTable getData(MySqlCommand Command) {
+        public DataTable getData(MySqlCommand Command)
+        {
             DataTable dtResult = new DataTable();
 
-            try {
+            try
+            {
                 if (conn.State == ConnectionState.Closed)
                     dbConnect();
 
@@ -65,14 +79,34 @@ namespace Com.Martin.SMS.DB {
 
                 adapter.SelectCommand = Command;
                 adapter.Fill(dtResult);
-            } catch (MySqlException ex) {
+            }
+            catch (MySqlException ex)
+            {
 
             }
-
+            
             return dtResult;
         }
 
-        public void execSQL(MySqlCommand Command) {
+        public bool Exec(MySqlCommand Command)
+        {
+            bool bResult = false;
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                    dbConnect();
+
+                Command.Connection = conn;
+                Command.ExecuteNonQuery();
+                bResult = true;
+            }
+            catch (MySqlException ex)
+            {
+
+            }
+
+            return bResult;
         }
+
     }
 }
