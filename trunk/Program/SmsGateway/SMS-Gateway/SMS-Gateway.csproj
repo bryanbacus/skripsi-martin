@@ -46,9 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppClass\AbstractCommand.cs" />
-    <Compile Include="AppClass\CommandProcessor.cs" />
-    <Compile Include="AppClass\ConfigLoader.cs" />
+    <Compile Include="AppClass\Command.cs" />
+    <Compile Include="AppClass\Common.cs" />
     <Compile Include="AppClass\DBProvider.cs" />
     <Compile Include="FrmBroadcastSchedule.cs">
       <SubType>Form</SubType>
@@ -68,9 +67,8 @@
     <Compile Include="FrmDiagnostic.Designer.cs">
       <DependentUpon>FrmDiagnostic.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppClass\SMSException.cs" />
-    <Compile Include="AppClass\StructCommand.cs" />
-    <Compile Include="AppClass\StructSMS.cs" />
+    <Compile Include="AppClass\Exception.cs" />
+    <Compile Include="AppClass\Data.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
