@@ -43,8 +43,10 @@ namespace Com.Martin.SMS.Common {
     }
 
     class ConfigLoader {
+        private DB.DBProvider database = new Com.Martin.SMS.DB.DBProvider();
 
         public Com.Martin.SMS.Command.AbstractRequest CreateRequestCommand(String CommandType, String CommandName) {
+            
             throw new Com.Martin.SMS.Exception.SMSException();
         }
 
