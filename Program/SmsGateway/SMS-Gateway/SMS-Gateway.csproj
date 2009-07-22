@@ -41,9 +41,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Syncfusion.Core">
-      <Name>Syncfusion.Core</Name>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppClass\Command.cs" />
