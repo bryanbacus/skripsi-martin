@@ -21,58 +21,48 @@ using SMS_Gateway.FormDiagnostic;
 using SMS_Gateway.FormBroadcastSchedule;
 using SMS_Gateway.FormCommandRegister;
 
-namespace SMS_Gateway
-{
-    public partial class FrmMain : Form
-    {
+namespace SMS_Gateway {
+    public partial class FrmMain : Form {
 
         private DBProvider dbprovider = new DBProvider();
-      
+
         private GSMModem oGsmModem = new GSMModem();
 
         private String dialogCaption = "SMS Gateway";
-     
 
-        public FrmMain()
-        {
+
+        public FrmMain() {
             InitializeComponent();
             this.oGsmModem.NewMessageReceived += new GSMModem.NewMessageReceivedEventHandler(this.oGsmModem_NewMessageReceived);
         }
 
 
-        private void oGsmModem_NewMessageReceived(ATSMS.NewMessageReceivedEventArgs e)
-        {
+        private void oGsmModem_NewMessageReceived(ATSMS.NewMessageReceivedEventArgs e) {
             MessageBox.Show("Message from " + e.MSISDN + ". Message - " + e.TextMessage, dialogCaption, MessageBoxButtons.OK);
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
+        private void btnConnect_Click(object sender, EventArgs e) {
             if (oGsmModem.IsConnected) {
                 MessageBox.Show("Already Connected, please close connection", dialogCaption, MessageBoxButtons.OK);
                 return;
             }
 
-            if (cboComPort.Text == string.Empty)
-            {
+            if (cboComPort.Text == string.Empty) {
                 MessageBox.Show("COM Port must be selected", dialogCaption, MessageBoxButtons.OK);
                 return;
             }
             oGsmModem.Port = cboComPort.Text;
 
-            if (cboBaudRate.Text != string.Empty)
-            {
+            if (cboBaudRate.Text != string.Empty) {
                 oGsmModem.BaudRate = Convert.ToInt32(cboBaudRate.Text);
             }
 
-            if (cboDataBit.Text != string.Empty)
-            {
+            if (cboDataBit.Text != string.Empty) {
                 oGsmModem.DataBits = Convert.ToInt32(cboDataBit.Text);
             }
 
-            if (cboStopBit.Text != string.Empty)
-            {
-                switch (cboStopBit.Text)
-                {
+            if (cboStopBit.Text != string.Empty) {
+                switch (cboStopBit.Text) {
                     case "1":
                         oGsmModem.StopBits = ATSMS.Common.EnumStopBits.One;
                         break;
@@ -85,10 +75,8 @@ namespace SMS_Gateway
                 }
             }
 
-            if (cboFlowControl.Text != string.Empty)
-            {
-                switch (cboFlowControl.Text)
-                {
+            if (cboFlowControl.Text != string.Empty) {
+                switch (cboFlowControl.Text) {
                     case "None":
                         oGsmModem.FlowControl = ATSMS.Common.EnumFlowControl.None;
                         break;
@@ -100,13 +88,11 @@ namespace SMS_Gateway
                         break;
                 }
             }
-            
-            try
-            {
+
+            try {
                 oGsmModem.Connect();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message, dialogCaption, MessageBoxButtons.OK);
                 return;
             }
@@ -115,116 +101,96 @@ namespace SMS_Gateway
             btnDiagnostic.Enabled = true;
         }
 
-        private void btnDisconnect_Click(object sender, EventArgs e)
-        {
-            if (oGsmModem.IsConnected)
-            {
+        private void btnDisconnect_Click(object sender, EventArgs e) {
+            if (oGsmModem.IsConnected) {
                 oGsmModem.Disconnect();
             }
-            btnConnect.Enabled = true; 
+            btnConnect.Enabled = true;
             btnDisconnect.Enabled = false;
             btnDiagnostic.Enabled = false;
         }
 
-        private void btnDiagnostic_Click(object sender, EventArgs e)
-        {
-            if (oGsmModem.IsConnected)
-            {
+        private void btnDiagnostic_Click(object sender, EventArgs e) {
+            if (oGsmModem.IsConnected) {
                 FrmDiagnostic frmDiag = new FrmDiagnostic();
                 this.Cursor = Cursors.WaitCursor;
-                frmDiag.getModemDetails(oGsmModem); 
+                frmDiag.getModemDetails(oGsmModem);
                 frmDiag.ShowDialog();
                 this.Cursor = Cursors.Default;
             }
-            else 
-            {
+            else {
                 MessageBox.Show("Modem is not connected", dialogCaption, MessageBoxButtons.OK);
             }
         }
 
-        private void Btn_Close_Click(object sender, EventArgs e)
-        {   
-            if (oGsmModem.IsConnected) 
-            { 
-                oGsmModem.Disconnect(); 
+        private void Btn_Close_Click(object sender, EventArgs e) {
+            if (oGsmModem.IsConnected) {
+                oGsmModem.Disconnect();
             }
             this.Close();
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
+        private void FrmMain_Load(object sender, EventArgs e) {
             btnConnect.Enabled = true;
             btnDisconnect.Enabled = false;
             btnDiagnostic.Enabled = false;
-            
+
             cmbInboxTimeInterval.SelectedIndex = 0;
             cmbOutboxTimeInterval.SelectedIndex = 0;
             cmbInboxFilter.SelectedIndex = 0;
             cmbOutBoxFilter.SelectedIndex = 0;
 
             ConnectToDB();
-            showCommandRegister();
-            showBroadcastSchedule();
+            showCommandRegister(false);
+            showBroadcastSchedule(false);
         }
 
-        private void chkTab() 
-        {
-            if (oGsmModem.IsConnected)
-            { 
-                
+        private void chkTab() {
+            if (oGsmModem.IsConnected) {
+
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) {
             String Receiver = "085668495684";
             String Msg = "Test doank";
-            try
-            {
+            try {
                 oGsmModem.SendSMS(Receiver, Msg);
             }
-            catch (Exception ex) 
-            {
-                MessageBox.Show( ex.Message , dialogCaption , MessageBoxButtons.OK);           
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, dialogCaption, MessageBoxButtons.OK);
             }
 
         }
 
-        private void btnInboxClearLog_Click(object sender, EventArgs e)
-        {
+        private void btnInboxClearLog_Click(object sender, EventArgs e) {
             txtInboxLog.Text = String.Empty;
         }
 
-        private void chkInboxTimeInterval_CheckedChanged(object sender, EventArgs e)
-        {
+        private void chkInboxTimeInterval_CheckedChanged(object sender, EventArgs e) {
             LogTimer(this.chkInboxTimeInterval, this.InboxTimer, this.cmbInboxTimeInterval);
         }
 
-        private void LogTimer(CheckBox oCheckBox,Timer oTimer, ComboBox oCombo) 
-        {
-            if (oCheckBox.Checked)
-            {
+        private void LogTimer(CheckBox oCheckBox, Timer oTimer, ComboBox oCombo) {
+            if (oCheckBox.Checked) {
                 oTimer.Stop();
                 oTimer.Interval = getInterval(oCombo.SelectedIndex);
                 oTimer.Start();
             }
-            else
-            {
-                 oTimer.Stop();
+            else {
+                oTimer.Stop();
             }
         }
 
-        private int getInterval(int oIndex) 
-        {
+        private int getInterval(int oIndex) {
             int iRet = 1000;
-            switch (oIndex) 
-            {
+            switch (oIndex) {
                 case 0:
-                    iRet = iRet*60; //1 minutes
+                    iRet = iRet * 60; //1 minutes
                     break;
 
                 case 1:
-                    iRet = iRet * 60 *5; //5 minutes
+                    iRet = iRet * 60 * 5; //5 minutes
                     break;
                 case 2:
                     iRet = iRet * 60 * 15; //15 minutes
@@ -239,81 +205,71 @@ namespace SMS_Gateway
             return iRet;
         }
 
-        private void InboxTimer_Tick(object sender, EventArgs e)
-        {
+        private void InboxTimer_Tick(object sender, EventArgs e) {
             this.txtInboxLog.Text += DateTime.Now + " ";
         }
 
-        private void cmbInboxTimeInterval_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cmbInboxTimeInterval_SelectedIndexChanged(object sender, EventArgs e) {
             LogTimer(this.chkInboxTimeInterval, this.InboxTimer, this.cmbInboxTimeInterval);
         }
 
-        private void chkOutboxTimeInterval_CheckedChanged(object sender, EventArgs e)
-        {
+        private void chkOutboxTimeInterval_CheckedChanged(object sender, EventArgs e) {
             LogTimer(this.chkOutboxTimeInterval, this.OutboxTimer, this.cmbOutboxTimeInterval);
         }
 
-        private void cmbOutboxTimeInterval_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cmbOutboxTimeInterval_SelectedIndexChanged(object sender, EventArgs e) {
             LogTimer(this.chkOutboxTimeInterval, this.OutboxTimer, this.cmbOutboxTimeInterval);
         }
 
-        private void OutboxTimer_Tick(object sender, EventArgs e)
-        {
-            this.txtOutBoxLog.Text  += DateTime.Now + " ";
+        private void OutboxTimer_Tick(object sender, EventArgs e) {
+            this.txtOutBoxLog.Text += DateTime.Now + " ";
         }
 
-        private void btnOutboxClearLog_Click(object sender, EventArgs e)
-        {
+        private void btnOutboxClearLog_Click(object sender, EventArgs e) {
             this.txtOutBoxLog.Text = String.Empty;
         }
 
-        private void FrmMainClose(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                if (oGsmModem.IsConnected)
-                {
+        private void FrmMainClose(object sender, FormClosingEventArgs e) {
+            try {
+                if (oGsmModem.IsConnected) {
                     MessageBox.Show("disconnecting");
                     oGsmModem.Disconnect();
                 }
             }
-            catch (Exception ex) 
-            { 
-            
+            catch (Exception ex) {
+
             }
         }
 
-        private void ConnectToDB() 
-        {
-            
-            if (!dbprovider.dbConnect())
-            {
+        private void ConnectToDB() {
+
+            if (!dbprovider.dbConnect()) {
                 MessageBox.Show("Cannot Connect to Database!!");
                 this.Close();
                 return;
             }
         }
 
-        private void Btn_Add_Broadcast_Click(object sender, EventArgs e)
-        {
+        private void Btn_Add_Broadcast_Click(object sender, EventArgs e) {
             FrmBroadcastSchedule frmBroadcast = new FrmBroadcastSchedule();
-            frmBroadcast.ShowDialog(this);
+            DialogResult hasil = frmBroadcast.ShowDialog(this);
+            if (hasil == DialogResult.OK) {
+                showBroadcastSchedule(true);
+            }            
         }
 
-        private void Btn_Add_Cmd_Click(object sender, EventArgs e)
-        {
+        private void Btn_Add_Cmd_Click(object sender, EventArgs e) {
             FrmCommandRegister frmCmdReg = new FrmCommandRegister();
-            frmCmdReg.ShowDialog();
+            DialogResult hasil = frmCmdReg.ShowDialog(this);
+            if (hasil == DialogResult.OK) {
+                showCommandRegister(true);
+            }
         }
 
-        private void cmbOutBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cmbOutBoxFilter_SelectedIndexChanged(object sender, EventArgs e) {
             String sqlCmd = String.Empty;
-            switch (((ComboBox)sender).SelectedIndex)
-            {
-                case 0 :
+            switch (((ComboBox)sender).SelectedIndex) {
+                case 0:
                     sqlCmd = "select * from sms_output";
                     break;
                 case 1:
@@ -327,7 +283,7 @@ namespace SMS_Gateway
                     sqlCmd = "select * from sms_output";
                     break;
             }
-                        
+
             DataTable dtOutbox = dbprovider.getData(sqlCmd);
             this.gridOutbox.DataSource = dtOutbox;
             this.gridOutbox.AllowUserToAddRows = false;
@@ -337,11 +293,9 @@ namespace SMS_Gateway
             this.gridOutbox.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
-        private void cmbInboxFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cmbInboxFilter_SelectedIndexChanged(object sender, EventArgs e) {
             String sqlCmd = String.Empty;
-            switch (((ComboBox)sender).SelectedIndex)
-            {
+            switch (((ComboBox)sender).SelectedIndex) {
                 case 0:
                     sqlCmd = "select * from sms_input";
                     break;
@@ -356,7 +310,7 @@ namespace SMS_Gateway
                     sqlCmd = "select * from sms_input";
                     break;
             }
-               
+
             DataTable dtInbox = dbprovider.getData(sqlCmd);
             this.gridInbox.DataSource = dtInbox;
             this.gridInbox.AllowUserToAddRows = false;
@@ -366,45 +320,44 @@ namespace SMS_Gateway
             this.gridInbox.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
-        private void showCommandRegister() 
-        { 
+        private void showCommandRegister(bool justRefresh) {
             String sqlCmd = String.Empty;
 
             sqlCmd = "select * from daftar_register";
 
             DataTable dtCommand = dbprovider.getData(sqlCmd);
-                
+
             this.gridComands.DataSource = dtCommand;
-            
-            DataGridViewLinkColumn editLink = new DataGridViewLinkColumn();
-            editLink.Text = "edit";
-            editLink.UseColumnTextForLinkValue = true;
-            editLink.ToolTipText = "Edit Data";
-            editLink.Width = 40;
-            editLink.LinkColor = Color.Blue;
-            
 
-            DataGridViewLinkColumn deleteLink = new DataGridViewLinkColumn();
-            deleteLink.Text = "delete";
-            deleteLink.UseColumnTextForLinkValue = true;
-            deleteLink.ToolTipText = "Delete Data";
-            deleteLink.Width = 40;
-            deleteLink.LinkColor = Color.Red;
-
-            this.gridComands.Columns.Add(editLink);
-            this.gridComands.Columns.Add(deleteLink);
+            if (!justRefresh) {
+                DataGridViewLinkColumn editLink = new DataGridViewLinkColumn();
+                editLink.Text = "edit";
+                editLink.UseColumnTextForLinkValue = true;
+                editLink.ToolTipText = "Edit Data";
+                editLink.Width = 40;
+                editLink.LinkColor = Color.Blue;
 
 
+                DataGridViewLinkColumn deleteLink = new DataGridViewLinkColumn();
+                deleteLink.Text = "delete";
+                deleteLink.UseColumnTextForLinkValue = true;
+                deleteLink.ToolTipText = "Delete Data";
+                deleteLink.Width = 40;
+                deleteLink.LinkColor = Color.Red;
+
+                this.gridComands.Columns.Add(editLink);
+                this.gridComands.Columns.Add(deleteLink);
+
+            }
             this.gridComands.AllowUserToAddRows = false;
             this.gridComands.AllowUserToDeleteRows = false;
             this.gridComands.AllowUserToResizeColumns = true;
             this.gridComands.AllowUserToResizeRows = false;
             this.gridComands.EditMode = DataGridViewEditMode.EditProgrammatically;
-        
+
         }
 
-        private void showBroadcastSchedule()
-        {
+        private void showBroadcastSchedule(bool justRefresh) {
             String sqlCmd = String.Empty;
 
             sqlCmd = "select * from jadwal_broadcast";
@@ -412,35 +365,46 @@ namespace SMS_Gateway
             DataTable dtCommand = dbprovider.getData(sqlCmd);
 
             this.gridBroadcastSchedule.DataSource = dtCommand;
+
+            if (justRefresh) {
             
+            
+            }
+
             this.gridBroadcastSchedule.AllowUserToAddRows = false;
             this.gridBroadcastSchedule.AllowUserToDeleteRows = false;
             this.gridBroadcastSchedule.AllowUserToResizeColumns = true;
             this.gridBroadcastSchedule.AllowUserToResizeRows = false;
             this.gridBroadcastSchedule.EditMode = DataGridViewEditMode.EditProgrammatically;
-
-
         }
 
-        private void gridComands_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        private void gridComands_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (e.RowIndex < 0 || e.RowIndex >= this.gridComands.Rows.Count || e.ColumnIndex < 0 || e.ColumnIndex >= this.gridComands.Columns.Count)
                 return;
 
             DataGridViewLinkCell linkCell = this.gridComands.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewLinkCell;
 
-            if (linkCell != null) 
-            {
-                String s = this.gridComands.Rows[e.RowIndex].Cells[0].Value.ToString();
-                String s2 = this.gridComands.Rows[e.RowIndex].Cells[1].Value.ToString(); 
+            if (linkCell != null) {
+                String regType = this.gridComands.Rows[e.RowIndex].Cells[2].Value.ToString();
+                String regName = this.gridComands.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-                MessageBox.Show("ada : " + s + "-" + s2); 
-            
+                if (linkCell.Value.Equals("edit")) {
+
+                    FrmCommandRegister frmCmdReg = new FrmCommandRegister();
+                    frmCmdReg.showData(regType, regName);
+                    DialogResult hasil = frmCmdReg.ShowDialog(this);
+                    if (hasil == DialogResult.OK) {
+                        showCommandRegister(true);
+                    }
+                }
+                else if (linkCell.Value.Equals("delete")) {
+                    FrmCommandRegister frmCmdReg = new FrmCommandRegister();
+                    frmCmdReg.deleteData(regType, regName);
+                    showCommandRegister(true);
+                    
+                }
+                //MessageBox.Show("ada : " + regType + "-" + regName); 
             }
-
         }
-
-
-        
     }
 }
