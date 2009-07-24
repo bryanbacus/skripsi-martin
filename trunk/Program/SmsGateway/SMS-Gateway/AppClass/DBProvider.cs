@@ -75,8 +75,10 @@ namespace Com.Martin.SMS.DB
                 if (conn.State == ConnectionState.Closed)
                     dbConnect();
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                Command.Connection = conn;
 
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                
                 adapter.SelectCommand = Command;
                 adapter.Fill(dtResult);
             }

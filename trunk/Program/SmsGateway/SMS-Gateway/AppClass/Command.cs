@@ -25,22 +25,22 @@ namespace Com.Martin.SMS.Command {
             }
         }
 
-        public abstract String GetName();
+        public abstract String GetRegName();
 
-        public abstract String GetType();
+        public abstract String GetRegType();
 
         public abstract Com.Martin.SMS.Data.SMSOutgoing Execute();
     }
 
     public abstract class AbstractBroadcast {
-        public abstract String GetName();
+        public abstract String GetRegName();
 
-        public abstract String GetType();
+        public abstract String GetRegType();
 
         public abstract List<Com.Martin.SMS.Data.SMSOutgoing> Execute();
     }
 
-    class ParametersList {
+    public class ParametersList {
         private List<String> param = new List<String>();
 
         public void Add(String value) {
