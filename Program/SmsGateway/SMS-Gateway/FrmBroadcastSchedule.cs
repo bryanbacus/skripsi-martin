@@ -58,6 +58,50 @@ namespace SMS_Gateway.FormBroadcastSchedule
             //MessageBox.Show(Cmb_Name.Text);          
         }
 
+        public void showData(int jadwalID) {
+            DBProvider dbprovider = new DBProvider();
+
+            MySqlCommand command = new MySqlCommand();
+
+
+            String sqlCmd = "select * from jadwal_broadcast where id_jadwal=?id_jadwal";
+
+            command.CommandText = sqlCmd;
+            command.Parameters.Add(new MySqlParameter("id_jadwal", jadwalID));
+
+            DataTable dtCommand = dbprovider.getData(command);
+
+            if (dtCommand.Rows.Count > 0) {
+                DataRow row = dtCommand.Rows[0];
+
+                Cmb_Name.SelectedValue = row["reg_type"].ToString();
+                Cmb_Name.Text = row["reg_name"].ToString();
+                this.Txt_MaxLoop.Text = row["pengulangan_max"].ToString();
+                this.Txt_CurrLoop.Text = row["pengulangan_hitung"].ToString();
+
+                this.Txt_Interval.Text = row["pengulangan_interval_hari"].ToString();
+                this.dtNextExecute.Value =  DateTime.Parse(row["waktu_eksekusi_lanjut"].ToString());
+                this.dtLastExecute.Value = DateTime.Parse(row["waktu_eksekusi_terakhir"].ToString());
+                this.Cmb_Status.Text = row["status"].ToString();
+
+
+            }
+        }
+
+        public void deleteData(int jadwallID) {
+            DBProvider dbprovider = new DBProvider();
+
+            MySqlCommand command = new MySqlCommand();
+
+            String sqlCmd = "DELETE FROM `jadwal_broadcast` ";
+            sqlCmd += "WHERE CONVERT(`jadwal_broadcast`.`id_jadwal` ) = ?id_jadwal  ";
+            command.CommandText = sqlCmd;
+            command.Parameters.Clear();
+            command.Parameters.Add(new MySqlParameter("id_jadwal", jadwallID));
+
+            dbprovider.Exec(command);
+        }
+
         private void btnSave_Click(object sender, EventArgs e) {
             MySqlCommand command = new MySqlCommand();
             DBProvider dbProvider = new DBProvider();

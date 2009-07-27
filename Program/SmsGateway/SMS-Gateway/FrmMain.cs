@@ -366,9 +366,25 @@ namespace SMS_Gateway {
 
             this.gridBroadcastSchedule.DataSource = dtCommand;
 
-            if (justRefresh) {
-            
-            
+            if (!justRefresh) {
+                DataGridViewLinkColumn editLink = new DataGridViewLinkColumn();
+                editLink.Text = "edit";
+                editLink.UseColumnTextForLinkValue = true;
+                editLink.ToolTipText = "Edit Data";
+                editLink.Width = 40;
+                editLink.LinkColor = Color.Blue;
+
+
+                DataGridViewLinkColumn deleteLink = new DataGridViewLinkColumn();
+                deleteLink.Text = "delete";
+                deleteLink.UseColumnTextForLinkValue = true;
+                deleteLink.ToolTipText = "Delete Data";
+                deleteLink.Width = 40;
+                deleteLink.LinkColor = Color.Red;
+
+                this.gridBroadcastSchedule.Columns.Add(editLink);
+                this.gridBroadcastSchedule.Columns.Add(deleteLink);
+
             }
 
             this.gridBroadcastSchedule.AllowUserToAddRows = false;
@@ -376,6 +392,37 @@ namespace SMS_Gateway {
             this.gridBroadcastSchedule.AllowUserToResizeColumns = true;
             this.gridBroadcastSchedule.AllowUserToResizeRows = false;
             this.gridBroadcastSchedule.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+        private void gridBroadcastSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex < 0 || e.RowIndex >= this.gridComands.Rows.Count || e.ColumnIndex < 0 || e.ColumnIndex >= this.gridComands.Columns.Count)
+                return;
+
+            DataGridViewLinkCell linkCell = this.gridComands.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewLinkCell;
+
+            if (linkCell != null) {
+                String jadwalID = this.gridComands.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (linkCell.Value.Equals("edit")) {
+
+                    FrmBroadcastSchedule frmBroadcast = new FrmBroadcastSchedule();
+                    frmBroadcast.showData(int.TryParse(jadwalID,0));
+
+                    DialogResult hasil = frmBroadcast.ShowDialog(this);
+                    if (hasil == DialogResult.OK) {
+                        showBroadcastSchedule(true);
+                    }   
+                }
+                else if (linkCell.Value.Equals("delete")) {
+                    if (MessageBox.Show("Are you sure?", "Delete Data", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                        FrmBroadcastSchedule frmBroadcast = new FrmBroadcastSchedule();
+
+                        frmBroadcast.showData(int.TryParse(jadwalID));
+                        frmBroadcast.deleteData(int.TryParse(jadwalID));
+                        showBroadcastSchedule(true);
+                    }
+                }
+                //MessageBox.Show("ada : " + regType + "-" + regName); 
+            }
         }
 
         private void gridComands_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -398,10 +445,12 @@ namespace SMS_Gateway {
                     }
                 }
                 else if (linkCell.Value.Equals("delete")) {
-                    FrmCommandRegister frmCmdReg = new FrmCommandRegister();
-                    frmCmdReg.deleteData(regType, regName);
-                    showCommandRegister(true);
-                    
+                    if (MessageBox.Show("Are you sure?", "Delete Data", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                        FrmCommandRegister frmCmdReg = new FrmCommandRegister();
+
+                        frmCmdReg.deleteData(regType, regName);
+                        showCommandRegister(true);
+                    }
                 }
                 //MessageBox.Show("ada : " + regType + "-" + regName); 
             }

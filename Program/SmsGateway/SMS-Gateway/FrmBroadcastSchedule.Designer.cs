@@ -95,8 +95,8 @@ namespace SMS_Gateway.FormBroadcastSchedule
             this.Cmb_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cmb_Status.FormattingEnabled = true;
             this.Cmb_Status.Items.AddRange(new object[] {
-            "Active",
-            "Deactive"});
+            "ACTIVE",
+            "DEACTIVE"});
             this.Cmb_Status.Location = new System.Drawing.Point(111, 187);
             this.Cmb_Status.Name = "Cmb_Status";
             this.Cmb_Status.Size = new System.Drawing.Size(126, 21);
