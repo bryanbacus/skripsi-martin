@@ -1,0 +1,13 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SMS_Gateway.FormBroadcastSchedule.FrmBroadcastSchedule.resources
+obj\Debug\SMS_Gateway.FormCommandRegister.FrmCommandRegister.resources
+obj\Debug\SMS_Gateway.FormDiagnostic.FrmDiagnostic.resources
+obj\Debug\SMS_Gateway.FrmMain.resources
+obj\Debug\SMS_Gateway.Properties.Resources.resources
+obj\Debug\SMS-Gateway.csproj.GenerateResource.Cache
+bin\Debug\SMS-Gateway.exe
+bin\Debug\SMS-Gateway.pdb
+bin\Debug\ATSMS.dll
+bin\Debug\ATSMS.xml
+obj\Debug\SMS-Gateway.exe
+obj\Debug\SMS-Gateway.pdb
